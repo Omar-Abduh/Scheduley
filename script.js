@@ -1,9 +1,54 @@
 // Define courses with time slots for lectures, labs, and tutorials
 const courseTimes = {
-    course1: {
-        lecture: ["c2 lec1 Mon 9-10", "c2 lec2 Wed 10-11","c2 lec2 Wed 10-11","c2 lec2 Wed 10-11", "c2 lec1 Mon 9-10"], 
-        lab: ["c2 lab 1 Tue 2-4", "c2 lab2 Fri 2-4"], 
-        tutorial: ["c2 tut1 Thu 3-4", "c2 tut2 Thu 3-4", "c2 tut2 Thu 3-4", "c2 tut2 Thu 3-4"] 
+    CET212: {
+        lectures: [
+            {course: 'CET212', class: 'Lec 1', day: 'Sun', start: '12', end: '13', location: 'C2.1', lecturer: 'Dr. A'},
+            {course: 'CET212', class: 'Lec 2', day: 'Mon', start: '12', end: '13', location: 'C2.1', lecturer: 'Dr. A'},
+            {course: 'CET212', class: 'Lec 3', day: 'Wed', start: '12', end: '13', location: 'C2.1', lecturer: 'Dr. A'},
+        ],
+        labs: [
+            {course: 'CET212', class: 'Lab 1', day: 'Tue', start: '14', end: '16', location: 'Lab1', lecturer: 'Dr. A'},
+            {course: 'CET212', class: 'Lab 2', day: 'Thu', start: '14', end: '16', location: 'Lab1', lecturer: 'Dr. A'},
+        ],
+        tutorials: [
+            {course: 'CET212', class: 'Tut 1', day: 'Fri', start: '10', end: '11', location: 'T1', lecturer: 'Dr. A'},
+        ],
+    },
+    CET101: {
+        lectures: [
+            {course: 'CET101', class: 'Lec 1', day: 'Tue', start: '09', end: '10', location: 'B1.1', lecturer: 'Dr. B'},
+            {course: 'CET101', class: 'Lec 2', day: 'Thu', start: '09', end: '10', location: 'B1.1', lecturer: 'Dr. B'},
+        ],
+        labs: [
+            {course: 'CET101', class: 'Lab 1', day: 'Mon', start: '12', end: '14', location: 'Lab2', lecturer: 'Dr. B'},
+        ],
+        tutorials: [
+            {course: 'CET101', class: 'Tut 1', day: 'Wed', start: '11', end: '12', location: 'T2', lecturer: 'Dr. B'},
+        ],
+    },
+    CET303: {
+        lectures: [
+            {course: 'CET303', class: 'Lec 1', day: 'Mon', start: '14', end: '15', location: 'A3.2', lecturer: 'Dr. C'},
+            {course: 'CET303', class: 'Lec 2', day: 'Wed', start: '15', end: '16', location: 'A3.2', lecturer: 'Dr. C'},
+        ],
+        labs: [
+            {course: 'CET303', class: 'Lab 1', day: 'Thu', start: '15', end: '17', location: 'Lab3', lecturer: 'Dr. C'},
+        ],
+        tutorials: [
+            {course: 'CET303', class: 'Tut 1', day: 'Fri', start: '13', end: '14', location: 'T3', lecturer: 'Dr. C'},
+        ],
+    },
+    CET404: {
+        lectures: [
+            {course: 'CET404', class: 'Lec 1', day: 'Fri', start: '09', end: '10', location: 'D4.1', lecturer: 'Dr. D'},
+            {course: 'CET404', class: 'Lec 2', day: 'Fri', start: '11', end: '12', location: 'D4.1', lecturer: 'Dr. D'},
+        ],
+        labs: [
+            {course: 'CET404', class: 'Lab 1', day: 'Wed', start: '10', end: '12', location: 'Lab4', lecturer: 'Dr. D'},
+        ],
+        tutorials: [
+            {course: 'CET404', class: 'Tut 1', day: 'Thu', start: '08', end: '09', location: 'T4', lecturer: 'Dr. D'},
+        ],
     }
 };
 // Conflict cache to store known conflicts
@@ -20,7 +65,7 @@ function timesOverlap(class1, class2) {
     //const lecture = courses.CET212.lectures[2].class;
     if (class1.day !== class2.day) return false; // No overlap if different days
 
-    return !(end1 <= start2 || end2 <= start1); // True if they overlap
+    return !(class1.end <= class2.start || class2.end <= class1.start); // True if they overlap
 }
 
 // Function to check if a schedule has any conflicts
@@ -56,11 +101,11 @@ function generateSchedules(courses, currentSchedule = [], results = []) {
 
     // Get the first course and iterate over each of its time slots
     const [course, ...remainingCourses] = courses;
-    const { lecture, lab, tutorial } = courseTimes[course];
+    const {lectures, labs, tutorials} = courseTimes[course];
 
-    for (let lectureTime of lecture) {
-        for (let labTime of lab) {
-            for (let tutorialTime of tutorial) {
+    for (let lectureTime of lectures) {
+        for (let labTime of labs) {
+            for (let tutorialTime of tutorials) {
                 const newSchedule = [...currentSchedule, lectureTime, labTime, tutorialTime];
                 
                 // Check for conflicts and proceed if none
