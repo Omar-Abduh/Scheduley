@@ -1,4 +1,4 @@
-const courses = {
+const Offered_courses = {
     CET212: {
         lectures: [
             {course: 'CET212', class: 'Lec 1', day: 'Sun', start: '12', end: '13', location: 'C2.1', lecturer: 'Dr. A'},
@@ -50,3 +50,34 @@ const courses = {
         ],
     },
 };
+
+const courses = {
+    CET212: {
+        name: 'Data Structures and Algorithms',
+        code: 'CET212',
+        credits: 3,
+        prerequisite: 'CET101',
+        offered: Offered_courses.CET212,
+    },
+    CET101: {
+        name: 'Introduction to Computer Science',
+        code: 'CET101',
+        credits: 3,
+        prerequisite: null,
+        offered: Offered_courses.CET101,
+    },
+    CET303: {
+        name: 'Software Engineering',
+        code: 'CET303',
+        credits: 3,
+        prerequisite: 'CET212',
+        offered: Offered_courses.CET303,
+    },
+    CET404: {
+        name: 'Computer Networks',
+        code: 'CET404',
+        credits: 3,
+        prerequisite: 'CET303',
+        offered: Offered_courses.CET404,
+    },
+}

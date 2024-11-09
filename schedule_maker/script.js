@@ -38,18 +38,18 @@ const courseTimes = {
             {course: 'CET303', class: 'Tut 1', day: 'Fri', start: '13', end: '14', location: 'T3', lecturer: 'Dr. C'},
         ],
     },
-    CET404: {
-        lectures: [
-            {course: 'CET404', class: 'Lec 1', day: 'Fri', start: '09', end: '10', location: 'D4.1', lecturer: 'Dr. D'},
-            {course: 'CET404', class: 'Lec 2', day: 'Fri', start: '11', end: '12', location: 'D4.1', lecturer: 'Dr. D'},
-        ],
-        labs: [
-            {course: 'CET404', class: 'Lab 1', day: 'Wed', start: '10', end: '12', location: 'Lab4', lecturer: 'Dr. D'},
-        ],
-        tutorials: [
-            {course: 'CET404', class: 'Tut 1', day: 'Thu', start: '08', end: '09', location: 'T4', lecturer: 'Dr. D'},
-        ],
-    }
+    // CET404: {
+    //     lectures: [
+    //         {course: 'CET404', class: 'Lec 1', day: 'Fri', start: '09', end: '10', location: 'D4.1', lecturer: 'Dr. D'},
+    //         {course: 'CET404', class: 'Lec 2', day: 'Fri', start: '11', end: '12', location: 'D4.1', lecturer: 'Dr. D'},
+    //     ],
+    //     labs: [
+    //         {course: 'CET404', class: 'Lab 1', day: 'Wed', start: '10', end: '12', location: 'Lab4', lecturer: 'Dr. D'},
+    //     ],
+    //     tutorials: [
+    //         {course: 'CET404', class: 'Tut 1', day: 'Thu', start: '08', end: '09', location: 'T4', lecturer: 'Dr. D'},
+    //     ],
+    // }
 };
 // Conflict cache to store known conflicts
 const conflictCache = new Set();
