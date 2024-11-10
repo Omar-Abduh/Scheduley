@@ -102,7 +102,6 @@ function generateSchedules(courses, currentSchedule = [], results = []) {
     // Get the first course and iterate over each of its time slots
     const [course, ...remainingCourses] = courses;
     const {lectures, labs, tutorials} = courseTimes[course];
-
     for (let lectureTime of lectures) {
         for (let labTime of labs) {
             for (let tutorialTime of tutorials) {

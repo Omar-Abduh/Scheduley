@@ -53,11 +53,37 @@ document.getElementById("fileInput").addEventListener("change", function(event) 
                 }
             }
 
-            console.log(courses); // Output the structured data
-            document.getElementById("output").textContent = JSON.stringify(courses, null, 2);
+            // Populate the course dropdown
+            const courseSelect = document.getElementById("courseSelect");
+            courseSelect.innerHTML = '<option value="">Select courses</option>'; // Reset dropdown
+            Object.keys(courses).forEach(course => {
+                const option = document.createElement("option");
+                option.value = course;
+                option.textContent = course;
+                courseSelect.appendChild(option);
+            });
+
+            // Store the courses data for later use
+            courseSelect.courses = courses;
         };
-    reader.readAsText(file);
+        reader.readAsText(file);
     } else {
         console.log("No file selected");
     }
+});
+
+// Event listener for course selection
+document.getElementById("courseSelect").addEventListener("change", function(event) {
+    let selectedCourses = Array.from(event.target.selectedOptions).map(option => option.value);
+    const courses = event.target.courses;
+
+    let selectedData = selectedCourses.reduce((acc, course) => {
+        if (courses[course]) {
+            acc[course] = courses[course];
+        }
+        return acc;
+    }, {});
+
+    document.getElementById("output").textContent = JSON.stringify(selectedData, null, 2);
+    // selectedCourses = JSON.stringify(selectedData, null, 2);
 });

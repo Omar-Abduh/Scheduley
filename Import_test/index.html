@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV File Reader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        #fileInput {
+            margin-bottom: 20px;
+        }
+        #courseSelect {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        #output {
+            white-space: pre-wrap;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload and Process CSV File</h1>
+    <input type="file" id="fileInput" accept=".csv">
+    <select id="courseSelect" multiple>
+        <option value="">Select courses</option>
+    </select>
+    <pre id="output"></pre> <!-- Placeholder to display parsed data -->
+
+    <script src="script.js"></script>
+</body>
+</html>
