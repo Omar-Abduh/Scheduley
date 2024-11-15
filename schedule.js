@@ -2,8 +2,6 @@ import { readFile } from './fileHandler.js';
 import { parseCSV } from './csvParser.js';
 import { validateEntries } from './validator.js';
 
-// Rest of your code
-
 document.getElementById("fileInput").addEventListener("change", function(event) {
     const file = event.target.files[0];
     if (file) {
