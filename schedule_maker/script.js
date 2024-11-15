@@ -101,25 +101,31 @@ function generateSchedules(courses, currentSchedule = [], results = []) {
 
     // Get the first course and iterate over each of its time slots
     const [course, ...remainingCourses] = courses;
-    const {lectures, labs, tutorials} = courseTimes[course];
-    for (let lectureTime of lectures) {
-        for (let labTime of labs) {
-            for (let tutorialTime of tutorials) {
-                const newSchedule = [...currentSchedule, lectureTime, labTime, tutorialTime];
-                
-                // Check for conflicts and proceed if none
+    const { lectures = [], labs = [], tutorials = [] } = courseTimes[course]; // Default to empty arrays
+
+    // Replace empty lists with a placeholder null option
+    const lectureOptions = lectures.length ? lectures : [null];
+    const labOptions = labs.length ? labs : [null];
+    const tutorialOptions = tutorials.length ? tutorials : [null];
+
+    // Iterate through all combinations of lecture, lab, and tutorial
+    for (let lectureTime of lectureOptions) {
+        for (let labTime of labOptions) {
+            for (let tutorialTime of tutorialOptions) {
+                const newSchedule = [
+                    ...currentSchedule,
+                    ...(lectureTime ? [lectureTime] : []),  // Add lecture if present
+                    ...(labTime ? [labTime] : []),          // Add lab if present
+                    ...(tutorialTime ? [tutorialTime] : []) // Add tutorial if present
+                ];
+
+                // Recursively generate schedules if valid
                 if (isValidSchedule(newSchedule)) {
-                    if(i == 240000){
-                        return results;
-                    }else{
-                        i++;
-                        generateSchedules(remainingCourses, newSchedule, results);
-                    }
+                    generateSchedules(remainingCourses, newSchedule, results);
                 }
             }
         }
     }
-
     return results; // Contains all valid schedules
 }
 

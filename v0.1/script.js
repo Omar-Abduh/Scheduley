@@ -129,7 +129,6 @@ function isValidSchedule(schedule) {
 
 // Recursive function to generate all valid schedules
 function generateSchedules(courses, currentSchedule = [], results = []) {
-    
     if (courses.length === 0) {
         // If no more courses to add, check for validity
         if (isValidSchedule(currentSchedule)) {
@@ -139,35 +138,28 @@ function generateSchedules(courses, currentSchedule = [], results = []) {
     }
 
     // Get the first course and iterate over each of its time slots
-    // const [course, ...remainingCourses] = selectedResults;
     const [course, ...remainingCourses] = courses;
-    const { lectures, labs, tutorials } = selectedData[course];
-    
-    
+    const { lectures = [], labs = [], tutorials = [] } = selectedData[course]; // Default to empty arrays
 
-    for (let lectureTime of lectures) {
-        for (let labTime of labs) {
-            if (tutorials == []) {
-                for (let tutorialTime of tutorials) {
-                    const newSchedule = [...currentSchedule, lectureTime, labTime, tutorialTime];
-                    // Check for conflicts and proceed if none
-                    if (isValidSchedule(newSchedule)) {
-                        if(results.length == 240000){ // Limiting the number of schedules to 240000
-                            return results;
-                        }else{
-                            generateSchedules(remainingCourses, newSchedule, results);
-                        }
-                    }
-                }
-            }else{
-                const newSchedule = [...currentSchedule, lectureTime, labTime];
-                // Check for conflicts and proceed if none
+    // Replace empty lists with a placeholder null option
+    const lectureOptions = lectures.length ? lectures : [null];
+    const labOptions = labs.length ? labs : [null];
+    const tutorialOptions = tutorials.length ? tutorials : [null];
+
+    // Iterate through all combinations of lecture, lab, and tutorial
+    for (let lectureTime of lectureOptions) {
+        for (let labTime of labOptions) {
+            for (let tutorialTime of tutorialOptions) {
+                const newSchedule = [
+                    ...currentSchedule,
+                    ...(lectureTime ? [lectureTime] : []),  // Add lecture if present
+                    ...(labTime ? [labTime] : []),          // Add lab if present
+                    ...(tutorialTime ? [tutorialTime] : []) // Add tutorial if present
+                ];
+
+                // Recursively generate schedules if valid
                 if (isValidSchedule(newSchedule)) {
-                    if(results.length == 100){ // Limiting the number of schedules to 240000
-                        return results;
-                    }else{
-                        generateSchedules(remainingCourses, newSchedule, results);
-                    }
+                    generateSchedules(remainingCourses, newSchedule, results);
                 }
             }
         }
