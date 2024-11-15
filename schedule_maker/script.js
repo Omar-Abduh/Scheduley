@@ -11,7 +11,7 @@ const courseTimes = {
             {course: 'CET212', class: 'Lab 2', day: 'Thu', start: '14', end: '16', location: 'Lab1', lecturer: 'Dr. A'},
         ],
         tutorials: [
-            {course: 'CET212', class: 'Tut 1', day: 'Fri', start: '10', end: '11', location: 'T1', lecturer: 'Dr. A'},
+            {course: 'CET212', class: 'Tut 1', day: 'Thu', start: '10', end: '11', location: 'T1', lecturer: 'Dr. A'},
         ],
     },
     CET101: {
@@ -35,7 +35,7 @@ const courseTimes = {
             {course: 'CET303', class: 'Lab 1', day: 'Thu', start: '15', end: '17', location: 'Lab3', lecturer: 'Dr. C'},
         ],
         tutorials: [
-            {course: 'CET303', class: 'Tut 1', day: 'Fri', start: '13', end: '14', location: 'T3', lecturer: 'Dr. C'},
+            {course: 'CET303', class: 'Tut 1', day: 'Thu', start: '13', end: '14', location: 'T3', lecturer: 'Dr. C'},
         ],
     },
     // CET404: {
@@ -54,6 +54,14 @@ const courseTimes = {
 // Conflict cache to store known conflicts
 const conflictCache = new Set();
 
+const classifications = {
+    days1: [],
+    days2: [],
+    days3: [],
+    days4: [],
+    days5: []
+};
+
 // Helper function to generate a unique key for two conflicting sessions
 function getConflictKey(session1, session2) {
     return [session1.course + session1.class, session2.course + session2.class].sort().join("-");
@@ -68,8 +76,20 @@ function timesOverlap(class1, class2) {
     return !(class1.end <= class2.start || class2.end <= class1.start); // True if they overlap
 }
 
+
+//Functon to classify schedules based on the number of unique days
+function classifier(schedule, uniqueDays) {
+    const daysCount = uniqueDays.size;
+    if (daysCount >= 1 && daysCount <= 5) {
+        classifications["days${daysCount}"].push(schedule);
+    } else {
+        console.log("Classes are spread over more than five days.");
+    }
+}
+
 // Function to check if a schedule has any conflicts
 function isValidSchedule(schedule) {
+    const uniqueDays = new Set();
     for (let i = 0; i < schedule.length; i++) {
         for (let j = i + 1; j < schedule.length; j++) {
             const conflictKey = getConflictKey(schedule[i], schedule[j]);
@@ -83,8 +103,15 @@ function isValidSchedule(schedule) {
                 conflictCache.add(conflictKey);
                 return false; // Conflict found
             }
+            if (!uniqueDays.has(schedule[i].day)) {
+                uniqueDays.add(schedule[i].day);
+            }
+            if (!uniqueDays.has(schedule[j].day)) {
+                uniqueDays.add(schedule[j].day);
+            }
         }
     }
+    classifier(schedule, uniqueDays);
     return true; // No conflicts
 }
 
@@ -121,7 +148,11 @@ function generateSchedules(courses, currentSchedule = [], results = []) {
 
                 // Recursively generate schedules if valid
                 if (isValidSchedule(newSchedule)) {
-                    generateSchedules(remainingCourses, newSchedule, results);
+                    if(results.length == 24000){ // Limiting the number of schedules to 240000
+                        return results;
+                    }else{
+                        generateSchedules(remainingCourses, newSchedule, results);
+                    }
                 }
             }
         }
@@ -135,3 +166,4 @@ const allSchedules = generateSchedules(courses);
 
 console.log("Total valid schedules found:", allSchedules.length);
 console.log("Example valid schedule:", allSchedules[0]); // Print one example schedule
+console.log(classifications); // Print the classifications

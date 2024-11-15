@@ -89,10 +89,28 @@ document.getElementById("courseSelect").addEventListener("change", function(even
     // let selectedCourses2 = Object.keys(JSON.stringify(selectedData, null, 2));
 });
 
+document.getElementById("daySelect").addEventListener("change", function(event) {
+    const selectedDays = event.target.value;
+    const filteredSchedules = classifications[`days${selectedDays}`];
+    if (filteredSchedules) {
+        window.allSchedules = filteredSchedules;
+        viewIndex = 0;
+        renderSchedule(allSchedules[0]);
+    }
+});
+
 //--------------------End of import code--------------------
 //--------------------Start of schedule gen code--------------------
 // Conflict cache to store known conflicts
 const conflictCache = new Set();
+
+const classifications = {
+    days1: [],
+    days2: [],
+    days3: [],
+    days4: [],
+    days5: []
+};
 
 // Helper function to generate a unique key for two conflicting sessions
 function getConflictKey(session1, session2) {
@@ -106,9 +124,22 @@ function timesOverlap(class1, class2) {
 
     return !(class1.end <= class2.start || class2.end <= class1.start); // True if they overlap
 }
-// Function to check if a schedule has any conflicts
+
+//Functon to classify schedules based on the number of unique days
+function classifier(schedule, uniqueDays) {
+    const daysCount = uniqueDays.size;
+    if (daysCount >= 1 && daysCount <= 5) {
+        const days = `days${daysCount}`;
+        classifications[days].push(schedule);
+    } else {
+        console.log("Classes are spread over more than five days.");
+        console.log(schedule);
+    }
+}
+
 // Function to check if a schedule has any conflicts
 function isValidSchedule(schedule) {
+    const uniqueDays = new Set();
     for (let i = 0; i < schedule.length; i++) {
         for (let j = i + 1; j < schedule.length; j++) {
             const conflictKey = getConflictKey(schedule[i], schedule[j]);
@@ -122,8 +153,15 @@ function isValidSchedule(schedule) {
                 conflictCache.add(conflictKey);
                 return false; // Conflict found
             }
+            if (!uniqueDays.has(schedule[i].day)) {
+                uniqueDays.add(schedule[i].day);
+            }
+            if (!uniqueDays.has(schedule[j].day)) {
+                uniqueDays.add(schedule[j].day);
+            }
         }
     }
+    classifier(schedule, uniqueDays);
     return true; // No conflicts
 }
 
@@ -140,7 +178,11 @@ function generateSchedules(courses, currentSchedule = [], results = []) {
     // Get the first course and iterate over each of its time slots
     const [course, ...remainingCourses] = courses;
     const { lectures = [], labs = [], tutorials = [] } = selectedData[course]; // Default to empty arrays
-
+    // Check if all session types are required and present
+    if (lectures.length && labs.length && tutorials.length) {
+        // If any required session is missing, return early
+        return results;
+    }
     // Replace empty lists with a placeholder null option
     const lectureOptions = lectures.length ? lectures : [null];
     const labOptions = labs.length ? labs : [null];
@@ -159,7 +201,11 @@ function generateSchedules(courses, currentSchedule = [], results = []) {
 
                 // Recursively generate schedules if valid
                 if (isValidSchedule(newSchedule)) {
-                    generateSchedules(remainingCourses, newSchedule, results);
+                    if(results.length == 24000){ // Limiting the number of schedules to 240000
+                        return results;
+                    }else{
+                        generateSchedules(remainingCourses, newSchedule, results);
+                    }
                 }
             }
         }
@@ -205,8 +251,7 @@ let viewIndex = 0;
 document.getElementById("processButton").addEventListener("click", function() {
     window.allSchedules = generateSchedules(selectedResults);
     console.log(allSchedules.length);
-    renderSchedule(allSchedules[0]);
-    viewIndex = 0;
+    document.getElementById("daySelect").style.visibility = "visible";
 });
 
 document.getElementById("back").addEventListener("click", function() {
