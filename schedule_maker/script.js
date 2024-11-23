@@ -20,7 +20,7 @@ const courseTimes = {
             {course: 'CET101', class: 'Lec 2', day: 'Thu', start: '09', end: '10', location: 'B1.1', lecturer: 'Dr. B'},
         ],
         labs: [
-            {course: 'CET101', class: 'Lab 1', day: 'Mon', start: '12', end: '14', location: 'Lab2', lecturer: 'Dr. B'},
+            // {course: 'CET101', class: 'Lab 1', day: 'Mon', start: '12', end: '14', location: 'Lab2', lecturer: 'Dr. B'},
         ],
         tutorials: [
             {course: 'CET101', class: 'Tut 1', day: 'Wed', start: '11', end: '12', location: 'T2', lecturer: 'Dr. B'},
@@ -81,7 +81,7 @@ function timesOverlap(class1, class2) {
 function classifier(schedule, uniqueDays) {
     const daysCount = uniqueDays.size;
     if (daysCount >= 1 && daysCount <= 5) {
-        classifications["days${daysCount}"].push(schedule);
+        classifications[`days${daysCount}`].push(schedule);
     } else {
         console.log("Classes are spread over more than five days.");
     }
