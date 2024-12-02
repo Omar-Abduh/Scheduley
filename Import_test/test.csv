@@ -1,7 +1,0 @@
-course,class,day,start,end,location,lecturer,type
-CET212,Lec 1,Sun,12,13,C2.1,Dr. A,lecture
-CET212,Lec 2,Mon,12,13,C2.1,Dr. A,lecture
-CET212,Lec 3,Wed,12,13,C2.1,Dr. A,lecture
-CET212,Lab 1,Tue,14,16,Lab1,Dr. A,lab
-CET212,Lab 2,Thu,14,16,Lab1,Dr. A,lab
-CET212,Tut 1,Fri,10,11,T1,Dr. A,tutorial
