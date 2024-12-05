@@ -47,6 +47,7 @@ export function generateSchedules(courses,courseDetails, currentSchedule = [], r
 
     // Get the first course and iterate over each of its time slots
     // const [course, ...remainingCourses] = selectedResults;
+    console.log(courseDetails);
     const [course, ...remainingCourses] = courses;
     const { lectures, labs, tutorials } = courseDetails[course];
     
