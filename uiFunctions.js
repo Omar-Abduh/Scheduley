@@ -26,3 +26,17 @@ export function renderSchedule(schedule) {
     document.getElementById("back").style.visibility = "visible";
     document.getElementById("next").style.visibility = "visible";
 }
+
+export function populatelist(courses){
+    const courseSelect = document.getElementById("courseSelect");
+                courseSelect.innerHTML = '<option value="">Select courses</option>'; // Reset dropdown
+                Object.keys(courses).forEach(course => {
+                    const option = document.createElement("option");
+                    option.value = course;
+                    option.textContent = course;
+                    courseSelect.appendChild(option);
+                });
+
+                // Store the courses data for later use
+                courseSelect.courses = courses;
+}
