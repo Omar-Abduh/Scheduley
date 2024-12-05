@@ -15,7 +15,7 @@ let viewIndex = 0;
 
 document.getElementById("processButton").addEventListener("click", function() {
     console.log(selectedResults);
-    window.allSchedules = generateSchedules(selectedResults,courseDetails);
+    window.allSchedules = generateSchedules(selectedResults,selectedData);
     console.log(allSchedules.length);
     renderSchedule(allSchedules[0]);
     viewIndex = 0;

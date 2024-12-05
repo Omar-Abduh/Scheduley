@@ -47,7 +47,6 @@ export function generateSchedules(courses,courseDetails, currentSchedule = [], r
 
     // Get the first course and iterate over each of its time slots
     // const [course, ...remainingCourses] = selectedResults;
-    console.log(courseDetails);
     const [course, ...remainingCourses] = courses;
     const { lectures, labs, tutorials } = courseDetails[course];
     
@@ -63,7 +62,7 @@ export function generateSchedules(courses,courseDetails, currentSchedule = [], r
                         if(results.length == 240000){ // Limiting the number of schedules to 240000
                             return results;
                         }else{
-                            generateSchedules(remainingCourses, newSchedule, results);
+                            generateSchedules(remainingCourses, courseDetails, newSchedule, results);
                         }
                     }
                 }
@@ -74,7 +73,7 @@ export function generateSchedules(courses,courseDetails, currentSchedule = [], r
                     if(results.length == 100){ // Limiting the number of schedules to 240000
                         return results;
                     }else{
-                        generateSchedules(remainingCourses, newSchedule, results);
+                        generateSchedules(remainingCourses, courseDetails , newSchedule, results);
                     }
                 }
             }
