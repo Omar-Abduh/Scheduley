@@ -8,7 +8,22 @@
 </head>
 <body>
     <h1>University Schedule</h1>
-    <div class="schedule-container">
+    <h1>Upload and Process CSV File</h1>
+    <input type="file" id="fileInput" accept=".csv">
+    <select id="courseSelect" multiple>
+        <option value="">Select courses</option>
+    </select>
+    <button id="processButton">Generate Schedule</button>
+    <button id="back" style="visibility: hidden;">Back</button>
+    <button id="next" style="visibility: hidden;">Next</button>
+    <select id="daySelect" style="visibility: hidden;">
+        <option value="1">One day</option>
+        <option value="2">Two days</option>
+        <option value="3">Three days</option>
+        <option value="4">Four days</option>
+        <option value="5">Five days</option>
+    </select>
+    <div class="schedule-container" style="visibility: hidden;">
         <div class="time-column">
             <!-- Time slots -->
             <div class="time-slot">8:00</div>
@@ -24,19 +39,19 @@
         </div>
         <div class="days-container">
             <!-- Days -->
-            <div class="day-column" data-day="Sun">
+            <div class="day-column" data-day="SUN">
                 <div class="day-label">Sunday</div>
             </div>
-            <div class="day-column" data-day="Mon">
+            <div class="day-column" data-day="MON">
                 <div class="day-label">Monday</div>
             </div>
-            <div class="day-column" data-day="Tue">
+            <div class="day-column" data-day="TUE">
                 <div class="day-label">Tuesday</div>
             </div>
-            <div class="day-column" data-day="Wed">
+            <div class="day-column" data-day="WED">
                 <div class="day-label">Wednesday</div>
             </div>
-            <div class="day-column" data-day="Thu">
+            <div class="day-column" data-day="THU">
                 <div class="day-label">Thursday</div>
             </div>
         </div>
