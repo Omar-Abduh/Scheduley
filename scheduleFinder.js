@@ -48,36 +48,53 @@ export function generateSchedules(courses,courseDetails, currentSchedule = [], r
     // Get the first course and iterate over each of its time slots
     // const [course, ...remainingCourses] = selectedResults;
     const [course, ...remainingCourses] = courses;
-    const { lectures, labs, tutorials } = courseDetails[course];
+    const { lectures = [], labs = [], tutorials = [] } = courseDetails[course];
     
-    
+    const lectureOptions = lectures.length ? lectures : [null];
+    const labOptions = labs.length ? labs : [null];
+    const tutorialOptions = tutorials.length ? tutorials : [null];
 
-    for (let lectureTime of lectures) {
-        for (let labTime of labs) {
-            if (tutorials == []) {
-                for (let tutorialTime of tutorials) {
-                    const newSchedule = [...currentSchedule, lectureTime, labTime, tutorialTime];
-                    // Check for conflicts and proceed if none
-                    if (isValidSchedule(newSchedule)) {
-                        if(results.length == 240000){ // Limiting the number of schedules to 240000
-                            return results;
-                        }else{
-                            generateSchedules(remainingCourses, courseDetails, newSchedule, results);
-                        }
-                    }
-                }
-            }else{
-                const newSchedule = [...currentSchedule, lectureTime, labTime];
+    for (let lectureTime of lectureOptions) {
+        for (let labTime of labOptions) {
+            for (let tutorialTime of tutorialOptions) {
+                const newSchedule = [...currentSchedule,
+                    ...(lectureTime ? [lectureTime] : []),  // Add lecture if present
+                    ...(labTime ? [labTime] : []),          // Add lab if present
+                    ...(tutorialTime ? [tutorialTime] : []) // Add tutorial if present
+                ];
+
                 // Check for conflicts and proceed if none
                 if (isValidSchedule(newSchedule)) {
                     if(results.length == 100){ // Limiting the number of schedules to 240000
                         return results;
                     }else{
-                        generateSchedules(remainingCourses, courseDetails , newSchedule, results);
+                        generateSchedules(remainingCourses, courseDetails, newSchedule, results);
                     }
                 }
             }
         }
     }
     return results; // Contains all valid schedules
+}
+
+export function classifier(schedules) {
+    window.classifications = window.classifications || {};
+    for (let schedule of schedules) {
+        const uniqueDays = new Set();
+        for (let i = 0; i < schedule.length; i++) {
+            uniqueDays.add(schedule[i].day);
+        }
+        const daysCount = uniqueDays.size;
+        if (daysCount >= 1 && daysCount <= 5) {
+            const days = `days${daysCount}`;
+            if (!window.classifications[days]) {
+                window.classifications[days] = [];
+            }
+            window.classifications[days].push(schedule);
+        } else {
+            console.log("Classes are spread over more than five days.");
+            console.log(schedule);
+        }
+    }
+    return window.classifications;
 }

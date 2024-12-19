@@ -1,4 +1,4 @@
-import { generateSchedules } from './scheduleFinder.js';  // Adjust the path as needed
+import { generateSchedules, classifier } from './scheduleFinder.js';  // Adjust the path as needed
 import { initFileHandler } from './filesHandler.js';
 import { renderSchedule } from './uiFunctions.js';
 import { populatelist } from './uiFunctions.js';
@@ -21,9 +21,8 @@ if (coursesData) {
 let viewIndex = 0;
 
 document.getElementById("processButton").addEventListener("click", function() {
-    console.log(selectedResults);
     window.allSchedules = generateSchedules(selectedResults,selectedData);
-    console.log(allSchedules.length);
+    console.log("Total schedules = ", allSchedules.length);
     renderSchedule(allSchedules[0]);
     viewIndex = 0;
 });
