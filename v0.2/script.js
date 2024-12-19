@@ -278,11 +278,33 @@ function renderSchedule(schedule) {
 }
 
 let viewIndex = 0;
+function classifierTest(schedules) {
+    window.classificationsTest = window.classificationsTest || {};
+    for (let schedule of schedules) {
+        const uniqueDays = new Set();
+        for (let i = 0; i < schedule.length; i++) {
+            uniqueDays.add(schedule[i].day);
+        }
+        const daysCount = uniqueDays.size;
+        if (daysCount >= 1 && daysCount <= 5) {
+            const days = `days${daysCount}`;
+            if (!window.classificationsTest[days]) {
+                window.classificationsTest[days] = [];
+            }
+            window.classificationsTest[days].push(schedule);
+        } else {
+            console.log("Classes are spread over more than five days.");
+            console.log(schedule);
+        }
+    }
+}
 
 document.getElementById("processButton").addEventListener("click", function() {
-    window.allSchedules = newgenerateSchedules(selectedResults);
-    console.log(allSchedules.length);
-    console.log(allSchedules);
+    window.allSchedules = generateSchedules(selectedResults);
+    classifierTest(allSchedules);
+    console.log(classificationsTest);
+    // console.log(allSchedules.length);
+    // console.log(allSchedules);
     document.getElementById("daySelect").style.visibility = "visible";
 });
 
