@@ -1,5 +1,5 @@
 import { generateSchedules } from './scheduleFinder.js'; // Adjust the path as needed
-import { numOfDaysFilter, findSchedulesWithGaps } from './afterFilters/postGenFilters.js';
+import { numOfDaysFilter, findSchedulesWithGaps } from './filters/postGenFilters.js';
 import { initFileHandler } from './filesHandler.js';
 import { renderSchedule } from './uiFunctions.js';
 import { populatelist } from './uiFunctions.js';
