@@ -65,7 +65,7 @@ export function generateSchedules(courses,courseDetails, currentSchedule = [], r
 
                 // Check for conflicts and proceed if none
                 if (isValidSchedule(newSchedule)) {
-                    if(results.length == 1){ // Limiting the number of schedules to 240000
+                    if(results.length == 100){ // Limiting the number of schedules to 240000
                         return results;
                     }else{
                         generateSchedules(remainingCourses, courseDetails, newSchedule, results);
