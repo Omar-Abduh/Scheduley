@@ -2,11 +2,12 @@
 .schedule-container {
     display: flex;
     flex-direction: column;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white;
+    outline: 2px solid #FF5733; /* TODO: fix*/
 }
 
 /* Day Labels */
@@ -92,7 +93,6 @@
     box-sizing: border-box;
     font-size: 12px;
     font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Design */
