@@ -67,6 +67,8 @@ export function initFileHandler(){
 
                 // Store the courses data for later use
                 courseSelect.courses = courses;
+                localStorage.setItem('coursesData', JSON.stringify(courses));
+                localStorage.setItem('coursesDataDate', JSON.stringify(new Date().toISOString()));
             };
             reader.readAsText(file);
         } else {
