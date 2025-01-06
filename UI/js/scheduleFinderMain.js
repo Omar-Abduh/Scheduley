@@ -10,13 +10,32 @@ initFileHandler(); //TODO: only load when needed
 
 // console.log("Total valid schedules found:", allSchedules.length);
 // console.log("Example valid schedule:", allSchedules[0]); // Print one example schedule
-
+fetch('nav.html')
+    .then(response => response.text())
+    .then(data => {
+    document.getElementById('navbar').innerHTML = data;
+});
+fetch('scheduleVisuals.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('schedule-container').innerHTML = data;
+});
 let viewIndex = 0;
 
+document.getElementById("save-import-button").addEventListener("click", function() {
+    const savedSchedule = localStorage.getItem('coursesData');
+    if (!savedSchedule) {
+        alert("An error happened please import a schedule again");
+        return;
+    }
+    // Change the style of the upload container
+    document.getElementById("upload-container").style.display = "none";
+    document.getElementById("course-selection-container").style.display = "block";
+});
+
 document.getElementById("processButton").addEventListener("click", function() {
-    console.log(selectedResults);
     window.allSchedules = generateSchedules(selectedResults,selectedData);
-    console.log(allSchedules.length);
+    console.log("Total schedule made: " + allSchedules.length);
     document.getElementById("center-container").style.display = "none";
     document.getElementById("schedule-details-container").style.display = "block";
     renderSchedule(allSchedules[0]);

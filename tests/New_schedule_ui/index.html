@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Weekly Schedule</h1>
+    <h1>Scheduley</h1>
+    <p>New schedule UI</p>
     <div>
     <button id="toggleSeparators">Toggle Separators</button>
 </div>
@@ -97,7 +98,6 @@
     </div>
 </div>
     
-
     <script type="module">
         import { renderSchedule } from '../../UIFunctions.js';
 
@@ -108,8 +108,8 @@
             { day: 'THU', start: '11', end: '13', course: 'Art', class: '104', location: 'Room D' },
             { day: 'SUN', start: '12', end: '14', course: 'Music', class: '105', location: 'Room E' }
         ];
-
         renderSchedule(sampleSchedule);
+        
         document.addEventListener("DOMContentLoaded", () => {
             const scheduleContainer = document.querySelector(".schedule-container");
             const toggleButton = document.getElementById("toggleSeparators");

@@ -22,7 +22,4 @@ export function renderSchedule(schedule) {
         
         dayColumn.appendChild(block);
     });
-    document.querySelector('.schedule-container').style.visibility = 'visible';
-    document.getElementById("back").style.visibility = "visible";
-    document.getElementById("next").style.visibility = "visible";
 }

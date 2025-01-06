@@ -67,9 +67,8 @@ export function initFileHandler(){
 
                 // Store the courses data for later use
                 courseSelect.courses = courses;
-                // Change the style of the upload container
-                document.getElementById("upload-container").style.display = "none";
-                document.getElementById("course-selection-container").style.display = "block";
+                localStorage.setItem('coursesData', JSON.stringify(courses));
+                localStorage.setItem('coursesDataDate', JSON.stringify(new Date().toISOString()));
             };
             reader.readAsText(file);
         } else {
