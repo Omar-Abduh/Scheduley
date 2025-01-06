@@ -1,5 +1,3 @@
-import {populatelist} from './uiFunctions.js';
-
 export function initFileHandler(){
     // Description: This script is used to parse a CSV file containing course data and populate a dropdown with the course names.
     document.getElementById("fileInput").addEventListener("change", function(event) {
@@ -58,9 +56,17 @@ export function initFileHandler(){
                 }
 
                 // Populate the course dropdown
-                populatelist(courses);
-                // Save to localStorage whenever courses are loaded
-                localStorage.setItem('coursesData', JSON.stringify(courses));
+                const courseSelect = document.getElementById("courseSelect");
+                courseSelect.innerHTML = '<option value="">Select courses</option>'; // Reset dropdown
+                Object.keys(courses).forEach(course => {
+                    const option = document.createElement("option");
+                    option.value = course;
+                    option.textContent = course;
+                    courseSelect.appendChild(option);
+                });
+
+                // Store the courses data for later use
+                courseSelect.courses = courses;
             };
             reader.readAsText(file);
         } else {

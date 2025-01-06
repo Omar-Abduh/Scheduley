@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Visualization</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/scheduleVisuals.css">
+</head>
+<body>
+    <div id="navbar"></div>
+    <div id="center-container" style="display: block;">
+        <!-- Import and data validation stage -->
+        <div id="upload-container" style="display: block;">
+            <h2>How this works</h2>
+            <p>Upload a valid csv file containing all the needed course data and we will find you the best schedules</p>
+            <p>You can download the CSV template and fill it with your Universities data</p>
+            <a href="#">Download template</a><br>
+            <input type="file" id="fileInput" accept=".csv">
+            <button id="save-import-button">Next step</button>
+        </div>
+        <!-- Course selection stage -->
+        <div id="course-selection-container" style="display: none;">
+            <select id="courseSelect" multiple>
+                <option value="">Select courses</option>
+            </select>
+            <button id="processButton">Generate Schedule</button>
+        </div>
+    </div>
+    <!-- Schedule confirmation menu -->
+    <div id="schedule-details-container" style="display: none;">
+        <button id="back">Back</button>
+        <button id="next">Next</button>
+        <!-- Should be imported first -->
+        <div id="schedule-container"></div>
+        <button id="save-schedule-button">Save schedule</button>
+    </div> 
+    <script type="module" src="../js/scheduleFinderMain.js"></script>
+</body>
+</html>
