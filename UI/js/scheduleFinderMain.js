@@ -32,3 +32,8 @@ document.getElementById("next").addEventListener("click", function() {
     viewIndex++;
     renderSchedule(allSchedules[viewIndex]);
 });
+
+document.getElementById("save-schedule-button").addEventListener("click", function() {
+    localStorage.setItem('savedSchedule', JSON.stringify(allSchedules[viewIndex]));
+    alert('Schedule saved successfully!');
+});
