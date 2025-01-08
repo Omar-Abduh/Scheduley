@@ -73,11 +73,17 @@ document.getElementById("processButton").addEventListener("click", function() {
 
 document.getElementById("back").addEventListener("click", function() {
     viewIndex--;
+    if(viewIndex < 0){
+        viewIndex = allSchedules.length - 1;
+    }
     renderSchedule(allSchedules[viewIndex]);
 });
 
 document.getElementById("next").addEventListener("click", function() {
     viewIndex++;
+    if(viewIndex >= allSchedules.length){
+        viewIndex = 0;
+    }
     renderSchedule(allSchedules[viewIndex]);
 });
 
