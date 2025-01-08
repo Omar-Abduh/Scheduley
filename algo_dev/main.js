@@ -1,5 +1,5 @@
 import { generateSchedules } from './scheduleFinder.js'; // Adjust the path as needed
-import { numOfDaysFilter, findSchedulesWithGaps, checkLabOrTutorialAfterLecture } from './filters/postGenFilters.js';
+import { specificDayFilter } from './filters/dataSetAlterFilters.js';
 import { initFileHandler } from './filesHandler.js';
 import { renderSchedule } from './uiFunctions.js';
 import { populatelist } from './uiFunctions.js';
@@ -22,12 +22,13 @@ if (coursesData) {
 let viewIndex = 0;
 
 document.getElementById("processButton").addEventListener("click", function() {
-    window.allSchedules = generateSchedules(selectedResults,selectedData);
+    console.log(selectedResults);
+    window.test = specificDayFilter(selectedData, ["MON", "WED"]);
+    console.log("before: ", selectedData);
+    console.log("after: ", test);
+    window.allSchedules = generateSchedules(selectedResults,test);
     console.log("Total schedules = ", allSchedules.length);
-    
-    window.test = checkLabOrTutorialAfterLecture(allSchedules);
-    console.log(test.length);
-    renderSchedule(test[0]);
+    renderSchedule(allSchedules[0]);
     viewIndex = 0;
 });
 
