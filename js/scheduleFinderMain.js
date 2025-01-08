@@ -20,6 +20,8 @@ fetch('scheduleVisuals.html')
     .then(data => {
         document.getElementById('schedule-container').innerHTML = data;
 });
+
+
 let viewIndex = 0;
 
 document.getElementById("save-import-button").addEventListener("click", function() {
@@ -33,6 +35,10 @@ document.getElementById("save-import-button").addEventListener("click", function
     document.getElementById("course-selection-container").style.display = "block";
 });
 
+document.getElementById("show-filter-menu-button").addEventListener("click", function() {
+    document.getElementById("course-selection-container").style.display = "none";
+    document.getElementById("filter-selection-menu").style.display = "block";
+});
 document.getElementById("processButton").addEventListener("click", function() {
     window.allSchedules = generateSchedules(selectedResults,selectedData);
     console.log("Total schedule made: " + allSchedules.length);

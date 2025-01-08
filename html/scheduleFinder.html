@@ -24,8 +24,33 @@
             <select id="courseSelect" multiple>
                 <option value="">Select courses</option>
             </select>
-            <button id="processButton">Generate Schedule</button>
+            <button id="show-filter-menu-button">Next</button>
         </div>
+        <!-- Filters menu -->
+         <div id="filter-selection-menu" style="display: none;">
+            <h2>Filters</h2>
+            <div id="filter-container">
+                <div id="filter-1">
+                    <h3>Number of days</h3>
+                    <input type="checkbox" id="filter-1-checkbox">
+                    <label for="filter-1-checkbox">Filter 1</label>
+                    <input type="checkbox" id="filter-1-checkbox">
+                    <label for="filter-1-checkbox">Filter 1</label>
+                </div>
+                <div id="filter-2">
+                    <h3>Filter 2</h3>
+                    <input type="checkbox" id="filter-2-checkbox">
+                    <label for="filter-2-checkbox">Filter 2</label>
+                </div>
+                <div id="filter-3">
+                    <h3>Filter 3</h3>
+                    <input type="checkbox" id="filter-3-checkbox">
+                    <label for="filter-3-checkbox">Filter 3</label>
+                </div>
+            </div>
+            <button id="back">Back</button>
+            <button id="processButton">Generate Schedule</button>
+         </div>
     </div>
     <!-- Schedule confirmation menu -->
     <div id="schedule-details-container" style="display: none;">
