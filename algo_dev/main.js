@@ -1,5 +1,5 @@
 import { generateSchedules } from './scheduleFinder.js'; // Adjust the path as needed
-import { specificDayFilter } from './filters/dataSetAlterFilters.js';
+import { removeSessionsFilter } from './filters/dataSetAlterFilters.js';
 import { initFileHandler } from './filesHandler.js';
 import { renderSchedule } from './uiFunctions.js';
 import { populatelist } from './uiFunctions.js';
@@ -20,10 +20,21 @@ if (coursesData) {
     populatelist(coursesData);
 }
 let viewIndex = 0;
-
+let sessionsToRemove = {
+    "CET212": {
+      "lectures": ["Lecture 06", "Lecture 02"],
+      "labs": ["Lab 09", "Lab 13"],
+      "tutorials": []
+    },
+    "CET211": {
+      "lectures": ["Lecture 01", "Lecture 02"],
+      "labs": ["Lab 04", "Lab 02"],
+      "tutorials": []
+    }
+  }
 document.getElementById("processButton").addEventListener("click", function() {
     console.log(selectedResults);
-    window.test = specificDayFilter(selectedData, ["MON", "WED"]);
+    window.test = removeSessionsFilter(selectedData, sessionsToRemove);
     console.log("before: ", selectedData);
     console.log("after: ", test);
     window.allSchedules = generateSchedules(selectedResults,test);
