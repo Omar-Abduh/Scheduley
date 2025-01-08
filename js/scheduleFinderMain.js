@@ -1,4 +1,4 @@
-import { generateSchedules } from './scheduleFinder.js';  // Adjust the path as needed
+import { findSchedule } from './scheduleFinder.js';  // Adjust the path as needed
 import { initFileHandler } from './filesHandler.js';
 import { renderSchedule } from './uiFunctions.js';
 
@@ -21,7 +21,19 @@ fetch('scheduleVisuals.html')
         document.getElementById('schedule-container').innerHTML = data;
 });
 
+function getSelectedFilters() {
+    const chosenDays = document.querySelector('input[name="numOfDays"]:checked');
+    const chosenGaps = document.querySelector('input[name="findSchedulesWithGaps"]:checked');
+    const chosenLabOrTutorialAfterLecture = document.querySelector('input[name="checkLabOrTutorialAfterLecture"]:checked');
 
+    if (selectedRadio) {
+      console.log("Selected setting:", selectedRadio.value);
+      return selectedRadio.value;
+    } else {
+      console.log("No setting selected.");
+      return null;
+    }
+  }
 let viewIndex = 0;
 
 document.getElementById("save-import-button").addEventListener("click", function() {
@@ -40,8 +52,19 @@ document.getElementById("show-filter-menu-button").addEventListener("click", fun
     document.getElementById("filter-selection-menu").style.display = "block";
 });
 document.getElementById("processButton").addEventListener("click", function() {
-    window.allSchedules = generateSchedules(selectedResults,selectedData);
-    console.log("Total schedule made: " + allSchedules.length);
+    //Get filter values first
+    const chosenDays = document.querySelector('input[name="numOfDays"]:checked');
+    const chosenGaps = document.querySelector('input[name="findSchedulesWithGaps"]:checked');
+    const chosenLabOrTutorialAfterLecture = document.querySelector('input[name="checkLabOrTutorialAfterLecture"]:checked');
+    //Pack the filter values into an object to pass to the schedule generator
+    const filterData = {
+        days: chosenDays ? chosenDays.value : "any", //default to any if no value is selected
+        numOfDays: chosenDays ? chosenDays.value : "any", //default to any if no value is selected
+        gaps: chosenGaps ? chosenGaps.value : false, //default to false if no value is selected
+        labOrTutorialAfterLecture: chosenLabOrTutorialAfterLecture ? chosenLabOrTutorialAfterLecture.value : false //default to false if no value is selected
+    };
+    window.allSchedules = findSchedule(selectedResults,selectedData,filterData);
+    console.log("Total schedules found: " + allSchedules.length);
     document.getElementById("center-container").style.display = "none";
     document.getElementById("schedule-details-container").style.display = "block";
     renderSchedule(allSchedules[0]);

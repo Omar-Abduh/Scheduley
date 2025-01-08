@@ -32,23 +32,31 @@
             <div id="filter-container">
                 <div id="filter-1">
                     <h3>Number of days</h3>
-                    <input type="checkbox" id="filter-1-checkbox">
-                    <label for="filter-1-checkbox">Filter 1</label>
-                    <input type="checkbox" id="filter-1-checkbox">
-                    <label for="filter-1-checkbox">Filter 1</label>
+                    <input type="radio" id="numOfDaysFilter-any-checkbox" name="numOfDays" value="any" checked>
+                    <label for="numOfDaysFilter-any-checkbox">Any</label>
+                    <input type="radio" id="numOfDaysFilter-3days-checkbox" name="numOfDays" value="3">
+                    <label for="numOfDaysFilter-3days-checkbox">3 Days</label>
+                    <input type="radio" id="numOfDaysFilter-4days-checkbox" name="numOfDays" value="4">
+                    <label for="numOfDaysFilter-4days-checkbox">4 Days</label>
+                    <input type="radio" id="numOfDaysFilter-5days-checkbox" name="numOfDays" value="5">
+                    <label for="numOfDaysFilter-5days-checkbox">5 Days</label>
                 </div>
                 <div id="filter-2">
-                    <h3>Filter 2</h3>
-                    <input type="checkbox" id="filter-2-checkbox">
-                    <label for="filter-2-checkbox">Filter 2</label>
+                    <h3>Have at least 1 hour gap</h3>
+                    <input type="radio" id="findSchedulesWithGaps-false-checkbox" name="findSchedulesWithGaps" value="false" checked>
+                    <label for="findSchedulesWithGaps-false-checkbox">Doesn't matter</label>
+                    <input type="radio" id="findSchedulesWithGaps-true-checkbox" name="findSchedulesWithGaps" value="true">
+                    <label for="findSchedulesWithGaps-true-checkbox">Yes</label>
                 </div>
                 <div id="filter-3">
-                    <h3>Filter 3</h3>
-                    <input type="checkbox" id="filter-3-checkbox">
-                    <label for="filter-3-checkbox">Filter 3</label>
+                    <h3>Have labs after courses</h3>
+                    <input type="radio" id="checkLabOrTutorialAfterLecture-false-checkbox" name="checkLabOrTutorialAfterLecture" value="false" checked>
+                    <label for="checkLabOrTutorialAfterLecture-false-checkbox">Doesn't matter</label>
+                    <input type="radio" id="checkLabOrTutorialAfterLecture-true-checkbox" name="checkLabOrTutorialAfterLecture" value="true">
+                    <label for="checkLabOrTutorialAfterLecture-true-checkbox">Yes</label>
                 </div>
             </div>
-            <button id="back">Back</button>
+            <!-- <button id="back">Back</button> -->
             <button id="processButton">Generate Schedule</button>
          </div>
     </div>

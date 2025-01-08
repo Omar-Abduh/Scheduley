@@ -12,7 +12,7 @@ export function numOfDaysFilter(schedules) {
         const daysCount = uniqueDays.size;
 
         if (daysCount >= 1 && daysCount <= 5) {
-            const daysKey = `days${daysCount}`;
+            const daysKey = daysCount;
             if (!classifications[daysKey]) {
                 classifications[daysKey] = [];
             }

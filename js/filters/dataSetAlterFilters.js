@@ -1,4 +1,4 @@
-export function specificDayFilter(data, chosenDays) {
+export function specificDaysFilter(data, chosenDays) {
   const result = {};
 
   for (const course in data) {

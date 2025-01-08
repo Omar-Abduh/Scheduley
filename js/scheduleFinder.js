@@ -1,3 +1,6 @@
+import { specificDayFilter,removeSessionsFilter } from './filters/dataSetAlterFilters.js';
+import { numOfDaysFilter,findSchedulesWithGaps,checkLabOrTutorialAfterLecture } from './filters/postGenFilters.js';
+
 // Conflict cache to store known conflicts
 const conflictCache = new Set();
 
@@ -35,7 +38,7 @@ function isValidSchedule(schedule) {
 }
 
 // Recursive function to generate all valid schedules
-export function generateSchedules(courses,courseDetails, currentSchedule = [], results = []) {
+function generateSchedules(courses,courseDetails, currentSchedule = [], results = []) {
     
     if (courses.length === 0) {
         // If no more courses to add, check for validity
@@ -65,7 +68,7 @@ export function generateSchedules(courses,courseDetails, currentSchedule = [], r
 
                 // Check for conflicts and proceed if none
                 if (isValidSchedule(newSchedule)) {
-                    if(results.length == 100){ // Limiting the number of schedules to 240000
+                    if(results.length == 1000){ // Limiting the number of schedules to 240000
                         return results;
                     }else{
                         generateSchedules(remainingCourses, courseDetails, newSchedule, results);
@@ -77,24 +80,25 @@ export function generateSchedules(courses,courseDetails, currentSchedule = [], r
     return results; // Contains all valid schedules
 }
 
-export function classifier(schedules) {
-    window.classifications = window.classifications || {};
-    for (let schedule of schedules) {
-        const uniqueDays = new Set();
-        for (let i = 0; i < schedule.length; i++) {
-            uniqueDays.add(schedule[i].day);
-        }
-        const daysCount = uniqueDays.size;
-        if (daysCount >= 1 && daysCount <= 5) {
-            const days = `days${daysCount}`;
-            if (!window.classifications[days]) {
-                window.classifications[days] = [];
-            }
-            window.classifications[days].push(schedule);
-        } else {
-            console.log("Classes are spread over more than five days.");
-            console.log(schedule);
-        }
+//Function to determine the filter settings and return the schedules that match the filter settings
+export function findSchedule(courses,courseDetails,filterData){
+    // if (filterData.days !== "any"){
+    //     courseDetails = specificDaysFilter(courseDetails, chosenDays) //TODO: Implement this function
+    // }
+    let schedules = generateSchedules(courses,courseDetails);
+    if (filterData.numOfDays !== "any"){
+        let returnedDays = numOfDaysFilter(schedules); //TODO: change implementation to return all filtered values
+        schedules = returnedDays[filterData.numOfDays];
     }
-    return window.classifications;
+    console.log(schedules.length);
+    if (filterData.gaps === "true"){
+        console.log("Checking for schedules with gaps");
+        schedules = findSchedulesWithGaps(schedules);
+    }
+    console.log(filterData.gaps);
+    if (filterData.labOrTutorialAfterLecture === "true"){
+        console.log("Checking for labs or tutorials after lectures");
+        schedules = checkLabOrTutorialAfterLecture(schedules);
+    }
+    return schedules;
 }
