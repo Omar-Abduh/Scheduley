@@ -1,4 +1,4 @@
-import { specificDayFilter,removeSessionsFilter } from './filters/dataSetAlterFilters.js';
+import { specificDaysFilter,removeSessionsFilter } from './filters/dataSetAlterFilters.js';
 import { numOfDaysFilter,findSchedulesWithGaps,checkLabOrTutorialAfterLecture } from './filters/postGenFilters.js';
 
 // Conflict cache to store known conflicts
