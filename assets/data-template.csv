@@ -1,0 +1,10 @@
+course,class,day,start,end,location,lecturer,type
+Course number,Lecture num,SUN,14:20,16:00,Room number,Lecturer,LEC
+Course number,Lab num,TUE,09:00,11:30,Room number,Lecturer,LAB
+Course number,Lab num,MON,09:00,11:30,Room number,Lecturer,LAB
+Course number,Lecture num,MON,11:40,13:20,Room number,Lecturer,LEC
+Course number,Lecture num,MON,14:20,16:00,Room number,Lecturer,LEC
+Course number,Lecture num,WED,09:00,10:40,Room number,Lecturer,LEC
+Course number,Lecture num,WED,10:50,12:30,Room number,Lecturer,LEC
+Course number,Tutorial num,MON,09:00,10:40,Room number,Lecturer,TUT
+Course number,Tutorial num,SUN,09:00,11:30,Room number,Lecturer,TUT
