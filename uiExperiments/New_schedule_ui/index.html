@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Schedule Visualization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Scheduley</h1>
+    <p>New schedule UI</p>
+    <div>
+    <button id="toggleSeparators">Toggle Separators</button>
+</div>
+
+<div class="schedule-container">
+    <div class="day-labels-container">
+        <div class="time-label-placeholder"></div>
+        <div class="day-label">Sunday</div>
+        <div class="day-label">Monday</div>
+        <div class="day-label">Tuesday</div>
+        <div class="day-label">Wednesday</div>
+        <div class="day-label">Thursday</div>
+    </div>
+    <div class="schedule-grid">
+        <div class="time-column">
+            <div class="time-slot">8:00</div>
+            <div class="time-slot">9:00</div>
+            <div class="time-slot">10:00</div>
+            <div class="time-slot">11:00</div>
+            <div class="time-slot">12:00</div>
+            <div class="time-slot">1:00</div>
+            <div class="time-slot">2:00</div>
+            <div class="time-slot">3:00</div>
+            <div class="time-slot">4:00</div>
+            <div class="time-slot">5:00</div>
+        </div>
+        <div class="day-column" data-day="SUN">
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+        </div>
+        <div class="day-column" data-day="MON">
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+        </div>
+        <div class="day-column" data-day="TUE">
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+        </div>
+        <div class="day-column" data-day="WED">
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+        </div>
+        <div class="day-column" data-day="THU">
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+            <div class="day-cell"></div>
+        </div>
+    </div>
+</div>
+    
+    <script type="module">
+        import { renderSchedule } from '../../UIFunctions.js';
+
+        const sampleSchedule = [
+            { day: 'MON', start: '8', end: '10', course: 'Math', class: '101', location: 'Room A' },
+            { day: 'TUE', start: '9', end: '11', course: 'Science', class: '102', location: 'Room B' },
+            { day: 'WED', start: '10', end: '12', course: 'History', class: '103', location: 'Room C' },
+            { day: 'THU', start: '11', end: '13', course: 'Art', class: '104', location: 'Room D' },
+            { day: 'SUN', start: '12', end: '14', course: 'Music', class: '105', location: 'Room E' }
+        ];
+        renderSchedule(sampleSchedule);
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            const scheduleContainer = document.querySelector(".schedule-container");
+            const toggleButton = document.getElementById("toggleSeparators");
+
+            toggleButton.addEventListener("click", () => {
+                scheduleContainer.classList.toggle("separators-enabled");
+            });
+        });
+    </script>
+</body>
+</html>
