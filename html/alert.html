@@ -1,0 +1,45 @@
+<style> 
+  /* Error overlay styles */
+  #errorOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    opacity: 0; /* Initially invisible */
+    visibility: hidden; /* Prevent interaction when hidden */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth transition */
+  }
+  #errorOverlay.visible {
+  opacity: 1;
+  visibility: visible; /* Make visible when active */
+  }
+
+  .errorMessage {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .errorMessage h2 {
+    margin: 0;
+    color: #CE3602;
+  }
+
+  .errorMessage p {
+    margin: 10px 0 20px;
+    color: #CE3602;
+  }
+
+</style>
+<div class="errorMessage">
+  <h2 id="alert-title">Error Occurred!</h2>
+  <p id="alert-text">Something went wrong. Please try again later.</p>
+  <button id="close-alert">Close</button>
+</div>

@@ -1,4 +1,5 @@
 import { renderSchedule } from './uiFunctions.js';
+import { showError } from './alert.js';
 const savedSchedule = localStorage.getItem('savedSchedule');
 
 
@@ -8,6 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
         document.getElementById('navbar').innerHTML = data;
     });
+    fetch('alert.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('errorOverlay').innerHTML = data;
+    });
     fetch('scheduleVisuals.html')
         .then(response => response.text())
         .then(data => {
@@ -15,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (savedSchedule) {
                 const schedule = JSON.parse(savedSchedule);
                 renderSchedule(schedule);
+            }else{
+                showError("No schedule found", "Please import a schedule first");
             }
     });
     

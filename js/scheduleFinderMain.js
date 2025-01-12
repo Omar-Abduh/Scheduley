@@ -1,6 +1,7 @@
 import { findSchedule } from './scheduleFinder.js';  // Adjust the path as needed
 import { initFileHandler } from './filesHandler.js';
 import { renderSchedule } from './uiFunctions.js';
+import { showError } from './alert.js';
 
 // Initialize the file handler
 initFileHandler(); //TODO: only load when needed
@@ -136,3 +137,9 @@ export function loadCourseCardView(courses) {
         courseGrid.appendChild(card);
     });
 }
+
+fetch('alert.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('errorOverlay').innerHTML = data;
+});
