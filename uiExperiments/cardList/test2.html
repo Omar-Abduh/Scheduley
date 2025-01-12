@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Cards</title>
+  <style>
+    /* Grid layout */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* Adjust number of columns */
+      gap: 15px;
+      padding: 20px;
+    }
+
+    /* Card styles */
+    .course-card {
+      background-color: #CE3602; /* Dark red */
+      color: #fff; /* Gold */
+      /* border: 2px solid #4B0102; */
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      position: relative;
+      min-height: 150px;
+    }
+
+    .course-title {
+      font-weight: bold;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .instructor,
+    .details,
+    .time {
+      margin-bottom: 5px;
+      font-size: 10px;
+    }
+
+    .time {
+      font-size: 10px;
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      right: 0;
+    }
+
+    .highlight {
+      background-color: #ff4500; /* Orange highlight */
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container" id="courseGrid"></div>
+
+  <script>
+    // Array of course data
+    const courses = [
+      {
+        title: 'Data Structures & Algos',
+        instructor: 'Hesham Ali',
+        details: 'Lec 2 (A016)',
+        time: '09:00 AM - 11:30 AM'
+      },
+      {
+        title: 'Operating Systems',
+        instructor: 'Jane Doe',
+        details: 'Lab 1 (B104)',
+        time: '11:45 AM - 01:15 PM'
+      },
+      {
+        title: 'Database Systems',
+        instructor: 'John Smith',
+        details: 'Lec 3 (C202)',
+        time: '02:00 PM - 03:30 PM'
+      },
+      {
+        title: 'Computer Networks',
+        instructor: 'Alice Johnson',
+        details: 'Lec 1 (D310)',
+        time: '03:45 PM - 05:15 PM',
+        highlight: true
+      }
+    ];
+
+    const courseGrid = document.getElementById('courseGrid');
+
+    courses.forEach(course => {
+      const card = document.createElement('div');
+      card.className = 'course-card';
+
+      card.innerHTML = `
+        <div class="course-title">${course.title}</div>
+        <div class="instructor">${course.instructor}</div>
+        <div class="details">${course.details}</div>
+        <div class="time">${course.time}</div>
+      `;
+      if (course.highlight) card.classList.add('highlight');
+      courseGrid.appendChild(card);
+    });
+  </script>
+</body>
+</html>

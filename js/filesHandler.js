@@ -1,3 +1,5 @@
+import { loadCourseCardView } from './scheduleFinderMain.js';
+
 export function initFileHandler(){
     // Description: This script is used to parse a CSV file containing course data and populate a dropdown with the course names.
     document.getElementById("fileInput").addEventListener("change", function(event) {
@@ -55,18 +57,11 @@ export function initFileHandler(){
                     }
                 }
 
-                // Populate the course dropdown
-                const courseSelect = document.getElementById("courseSelect");
-                courseSelect.innerHTML = '<option value="">Select courses</option>'; // Reset dropdown
-                Object.keys(courses).forEach(course => {
-                    const option = document.createElement("option");
-                    option.value = course;
-                    option.textContent = course;
-                    courseSelect.appendChild(option);
-                });
-
+                // Load the course cards view
+                loadCourseCardView(courses); // TODO: Put this in the main script
+                
                 // Store the courses data for later use
-                courseSelect.courses = courses;
+                window.courses = courses;
                 localStorage.setItem('coursesData', JSON.stringify(courses));
                 localStorage.setItem('coursesDataDate', JSON.stringify(new Date().toISOString()));
             };
@@ -74,23 +69,6 @@ export function initFileHandler(){
         } else {
             console.log("No file selected");
         }
-    });
-
-
-    // Event listener for course selection
-    document.getElementById("courseSelect").addEventListener("change", function(event) {
-        let selectedCourses = Array.from(event.target.selectedOptions).map(option => option.value);
-        const courses = event.target.courses;
-
-        const selectedData = selectedCourses.reduce((acc, course) => {
-            if (courses[course]) {
-                acc[course] = courses[course];
-            }
-            return acc;
-        }, {});
-        window.selectedResults = selectedCourses;
-        window.selectedData = selectedData;
-        // let selectedCourses2 = Object.keys(JSON.stringify(selectedData, null, 2));
     });
 }
 //--------------------End of import code--------------------

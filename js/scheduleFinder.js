@@ -80,25 +80,42 @@ function generateSchedules(courses,courseDetails, currentSchedule = [], results 
     return results; // Contains all valid schedules
 }
 
-//Function to determine the filter settings and return the schedules that match the filter settings
-export function findSchedule(courses,courseDetails,filterData){
+// Function to determine the filter settings and return the schedules that match the filter settings
+export function findSchedule(courseKeys,filterData){
+
+    // Get the course details for the selected courses
+    let courseDetails = {};
+    for (let courseKey of courseKeys) {
+        if (courses[courseKey]) { 
+            courseDetails[courseKey] = courses[courseKey];
+        }
+    }
+
+    // Filter the data based on the selected days
     // if (filterData.days !== "any"){
     //     courseDetails = specificDaysFilter(courseDetails, chosenDays) //TODO: Implement this function
     // }
-    let schedules = generateSchedules(courses,courseDetails);
+    
+    // Generate the schedules
+    let schedules = generateSchedules(courseKeys,courseDetails);
+
+    // Filter the schedules based on the number of days
     if (filterData.numOfDays !== "any"){
         let returnedDays = numOfDaysFilter(schedules); //TODO: change implementation to return all filtered values
         schedules = returnedDays[filterData.numOfDays];
     }
-    console.log(schedules.length);
+    
+    // Filter the schedules based on the gaps
     if (filterData.gaps === "true"){
         console.log("Checking for schedules with gaps");
         schedules = findSchedulesWithGaps(schedules);
     }
-    console.log(filterData.gaps);
+
+    // Filter the schedules based on the labs or tutorials after lectures
     if (filterData.labOrTutorialAfterLecture === "true"){
         console.log("Checking for labs or tutorials after lectures");
         schedules = checkLabOrTutorialAfterLecture(schedules);
     }
+    
     return schedules;
 }

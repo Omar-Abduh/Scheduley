@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Course Cards</title>
+  <style>
+    /* Grid layout */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      padding: 20px;
+    }
+
+    /* Card styles */
+    .course-card {
+      background-color: #8B0000; /* Dark red */
+      color: #FFD700; /* Gold */
+      border: 2px solid #FFD700;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      cursor: pointer; /* Pointer cursor for interactivity */
+      transition: transform 0.2s, background-color 0.2s; /* Smooth effects */
+    }
+
+    .course-card:hover {
+      transform: scale(1.05); /* Slight zoom on hover */
+    }
+
+    /* Selected card styles */
+    .selected {
+      background-color: #FFD700; /* Gold background */
+      color: #8B0000; /* Dark red text */
+      border-color: #8B0000; /* Match border color with text */
+    }
+
+    .course-title {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .instructor,
+    .details,
+    .time {
+      margin-bottom: 5px;
+    }
+
+    .time {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container" id="courseGrid"></div>
+
+  <script>
+    // Array of course data
+    const courses = [
+      {
+        id: 1,
+        title: 'Data Structures & Algos',
+        instructor: 'Hesham Ali',
+        details: 'Lec 2, A016',
+        time: '09:00 AM - 11:30 AM'
+      },
+      {
+        id: 2,
+        title: 'Operating Systems',
+        instructor: 'Jane Doe',
+        details: 'Lab 1, B104',
+        time: '11:45 AM - 01:15 PM'
+      },
+      {
+        id: 3,
+        title: 'Database Systems',
+        instructor: 'John Smith',
+        details: 'Lec 3, C202',
+        time: '02:00 PM - 03:30 PM'
+      },
+      {
+        id: 4,
+        title: 'Computer Networks',
+        instructor: 'Alice Johnson',
+        details: 'Lec 1, D310',
+        time: '03:45 PM - 05:15 PM'
+      }
+    ];
+
+    const courseGrid = document.getElementById('courseGrid');
+    const selectedCourses = new Set(); // To track selected course IDs
+
+    courses.forEach(course => {
+      const card = document.createElement('div');
+      card.className = 'course-card';
+      card.dataset.id = course.id; // Assign a unique identifier
+
+      card.innerHTML = `
+        <div class="course-title">${course.title}</div>
+        <div class="instructor">${course.instructor}</div>
+        <div class="details">${course.details}</div>
+        <div class="time">${course.time}</div>
+      `;
+
+      // Add click event listener
+      card.addEventListener('click', () => {
+        const courseId = course.id;
+
+        // Toggle selection
+        if (selectedCourses.has(courseId)) {
+          selectedCourses.delete(courseId); // Remove from selected set
+          card.classList.remove('selected'); // Remove highlight
+        } else {
+          selectedCourses.add(courseId); // Add to selected set
+          card.classList.add('selected'); // Highlight card
+        }
+
+        console.log('Selected courses:', Array.from(selectedCourses));
+      });
+
+      courseGrid.appendChild(card);
+    });
+  </script>
+</body>
+</html>

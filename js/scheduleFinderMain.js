@@ -51,6 +51,8 @@ document.getElementById("show-filter-menu-button").addEventListener("click", fun
     document.getElementById("course-selection-container").style.display = "none";
     document.getElementById("filter-selection-menu").style.display = "block";
 });
+
+// Make schedule button
 document.getElementById("processButton").addEventListener("click", function() {
     //Get filter values first
     const chosenDays = document.querySelector('input[name="numOfDays"]:checked');
@@ -63,7 +65,7 @@ document.getElementById("processButton").addEventListener("click", function() {
         gaps: chosenGaps ? chosenGaps.value : false, //default to false if no value is selected
         labOrTutorialAfterLecture: chosenLabOrTutorialAfterLecture ? chosenLabOrTutorialAfterLecture.value : false //default to false if no value is selected
     };
-    window.allSchedules = findSchedule(selectedResults,selectedData,filterData);
+    window.allSchedules = findSchedule(selectedResults,filterData);
     console.log("Total schedules found: " + allSchedules.length);
     document.getElementById("center-container").style.display = "none";
     document.getElementById("schedule-details-container").style.display = "block";
@@ -91,3 +93,46 @@ document.getElementById("save-schedule-button").addEventListener("click", functi
     localStorage.setItem('savedSchedule', JSON.stringify(allSchedules[viewIndex]));
     alert('Schedule saved successfully!');
 });
+
+//Course selection cards code
+export function loadCourseCardView(courses) {
+    const courseGrid = document.getElementById('courseGrid');
+    const selectedCourses = new Set(); // To track selected course IDs
+
+    Object.entries(courses).forEach(([courseId, course]) => {
+        const card = document.createElement('div');
+        card.className = 'course-card';
+        card.dataset.id = courseId; // Use the courseId (key) here
+
+
+        //TODO: add more details to the card
+        card.innerHTML = ` 
+        <div class="course-card-title">Course ID</div>
+        <div class="course-card-code">${courseId}</div>
+        <div class="course-card-details">Level:2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CR:4.0</div>
+        `;
+        // card.innerHTML = `
+        // <div class="course-card-title">${course.title}</div>
+        // <div class="course-card-code">${courseId}</div>
+        // <div class="course-card-level">${course.level}</div>
+        // <div class="course-card-creditHours">${course.creditHours}</div>
+        // `;
+
+        // Add click event listener
+        card.addEventListener('click', () => {
+
+        // Toggle selection
+        if (selectedCourses.has(courseId)) {
+            selectedCourses.delete(courseId); // Remove from selected set
+            card.classList.remove('selected'); // Remove highlight
+            window.selectedResults = Array.from(selectedCourses); // TODO: not store in global
+        } else {
+            selectedCourses.add(courseId); // Add to selected set
+            card.classList.add('selected'); // Highlight card
+            window.selectedResults = Array.from(selectedCourses);
+        }
+        });
+
+        courseGrid.appendChild(card);
+    });
+}
