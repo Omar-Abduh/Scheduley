@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule Visualization</title>
-    <link rel="stylesheet" href="..\css\style2.css">
+    <link rel="stylesheet" href="..\css\style.css">
 </head>
 <body>
     <div id="navbar"></div>
     <h1>Your schedule</h1>
     <div id="schedule-container"></div>
-    <div id="errorOverlay"></div>
+    <div id="errorOverlay">
+        <div class="errorMessage">
+            <h2 id="alert-title">Error Occurred!</h2>
+            <p id="alert-text">Something went wrong. Please try again later.</p>
+            <button id="close-alert">Close</button>
+        </div>
+    </div>
     <script type="module" src="..\js\myscheduleMain.js"></script>
 </body>
 </html>

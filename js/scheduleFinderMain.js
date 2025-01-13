@@ -1,16 +1,13 @@
 import { findSchedule } from './scheduleFinder.js';  // Adjust the path as needed
 import { initFileHandler } from './filesHandler.js';
 import { renderSchedule } from './uiFunctions.js';
-import { showError } from './alert.js';
+import { showAlert } from './alert.js';
 
 // Initialize the file handler
 initFileHandler(); //TODO: only load when needed
-// Usage
 
-// const allSchedules = generateSchedules(courses,courseDetails);
+window.selectedResults = null; //Temporary to check if courses are selected
 
-// console.log("Total valid schedules found:", allSchedules.length);
-// console.log("Example valid schedule:", allSchedules[0]); // Print one example schedule
 fetch('nav.html')
     .then(response => response.text())
     .then(data => {
@@ -23,38 +20,6 @@ fetch('scheduleVisuals.html')
 });
 
 function getSelectedFilters() {
-    const chosenDays = document.querySelector('input[name="numOfDays"]:checked');
-    const chosenGaps = document.querySelector('input[name="findSchedulesWithGaps"]:checked');
-    const chosenLabOrTutorialAfterLecture = document.querySelector('input[name="checkLabOrTutorialAfterLecture"]:checked');
-
-    if (selectedRadio) {
-      console.log("Selected setting:", selectedRadio.value);
-      return selectedRadio.value;
-    } else {
-      console.log("No setting selected.");
-      return null;
-    }
-  }
-let viewIndex = 0;
-
-document.getElementById("save-import-button").addEventListener("click", function() {
-    const savedSchedule = localStorage.getItem('coursesData');
-    if (!savedSchedule) {
-        alert("An error happened please import a schedule again");
-        return;
-    }
-    // Change the style of the upload container
-    document.getElementById("upload-container").style.display = "none";
-    document.getElementById("course-selection-container").style.display = "block";
-});
-
-document.getElementById("show-filter-menu-button").addEventListener("click", function() {
-    document.getElementById("course-selection-container").style.display = "none";
-    document.getElementById("filter-selection-menu").style.display = "block";
-});
-
-// Make schedule button
-document.getElementById("processButton").addEventListener("click", function() {
     //Get filter values first
     const chosenDays = document.querySelector('input[name="numOfDays"]:checked');
     const chosenGaps = document.querySelector('input[name="findSchedulesWithGaps"]:checked');
@@ -66,6 +31,39 @@ document.getElementById("processButton").addEventListener("click", function() {
         gaps: chosenGaps ? chosenGaps.value : false, //default to false if no value is selected
         labOrTutorialAfterLecture: chosenLabOrTutorialAfterLecture ? chosenLabOrTutorialAfterLecture.value : false //default to false if no value is selected
     };
+    return filterData;
+}
+
+let viewIndex = 0;
+
+document.getElementById("save-import-button").addEventListener("click", function() {
+    const fileInput = document.getElementById('fileInput');
+    if (!fileInput.files.length) {
+        showAlert("No data found", "Please upload a schedule file first");
+        return;
+    }
+    const savedSchedule = localStorage.getItem('coursesData');
+    if (!savedSchedule) {
+        showAlert("An error happened", "Please import a schedule again");
+        return;
+    }
+    // Change the style of the upload container
+    document.getElementById("upload-container").style.display = "none";
+    document.getElementById("course-selection-container").style.display = "block";
+});
+
+document.getElementById("show-filter-menu-button").addEventListener("click", function() {
+    if(!selectedResults){
+        showAlert("No courses selected", "Please select courses first");
+        return;
+    }
+    document.getElementById("course-selection-container").style.display = "none";
+    document.getElementById("filter-selection-menu").style.display = "block";
+});
+
+// Make schedule button
+document.getElementById("processButton").addEventListener("click", function() {
+    const filterData = getSelectedFilters();
     window.allSchedules = findSchedule(selectedResults,filterData);
     console.log("Total schedules found: " + allSchedules.length);
     document.getElementById("center-container").style.display = "none";
@@ -92,7 +90,7 @@ document.getElementById("next").addEventListener("click", function() {
 
 document.getElementById("save-schedule-button").addEventListener("click", function() {
     localStorage.setItem('savedSchedule', JSON.stringify(allSchedules[viewIndex]));
-    alert('Schedule saved successfully!');
+    showAlert("Schedule saved", "Your schedule has been saved", "myschedule.html", "View schedule");
 });
 
 //Course selection cards code
@@ -137,9 +135,3 @@ export function loadCourseCardView(courses) {
         courseGrid.appendChild(card);
     });
 }
-
-fetch('alert.html')
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('errorOverlay').innerHTML = data;
-});
