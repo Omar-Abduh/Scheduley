@@ -1,0 +1,1936 @@
+[
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "LAB 08",
+            "day": "WED",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A031",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 01",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A123",
+            "lecturer": "TBA"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 07",
+            "day": "WED",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "LAB 08",
+            "day": "WED",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A031",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 01",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A123",
+            "lecturer": "TBA"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 01",
+            "day": "SUN",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "LAB 08",
+            "day": "WED",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A031",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 01",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A123",
+            "lecturer": "TBA"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 02",
+            "day": "SUN",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "LAB 08",
+            "day": "WED",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A031",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 01",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A123",
+            "lecturer": "TBA"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 04",
+            "day": "TUE",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "LAB 08",
+            "day": "WED",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A031",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A035",
+            "lecturer": "TBA4"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 07",
+            "day": "WED",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "LAB 08",
+            "day": "WED",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A031",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A035",
+            "lecturer": "TBA4"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 01",
+            "day": "SUN",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "LAB 08",
+            "day": "WED",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A031",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A035",
+            "lecturer": "TBA4"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 02",
+            "day": "SUN",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "LAB 08",
+            "day": "WED",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A031",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A035",
+            "lecturer": "TBA4"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 04",
+            "day": "TUE",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "Lab 06",
+            "day": "WED",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A005",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 01",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A123",
+            "lecturer": "TBA"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 08",
+            "day": "WED",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A035",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "Lab 06",
+            "day": "WED",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A005",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 01",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A123",
+            "lecturer": "TBA"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 01",
+            "day": "SUN",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "Lab 06",
+            "day": "WED",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A005",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 01",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A123",
+            "lecturer": "TBA"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 02",
+            "day": "SUN",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "Lab 06",
+            "day": "WED",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A005",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 01",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A123",
+            "lecturer": "TBA"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 04",
+            "day": "TUE",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "Lab 06",
+            "day": "WED",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A005",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A035",
+            "lecturer": "TBA4"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 08",
+            "day": "WED",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A035",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "Lab 06",
+            "day": "WED",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A005",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A035",
+            "lecturer": "TBA4"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 01",
+            "day": "SUN",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "Lab 06",
+            "day": "WED",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A005",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A035",
+            "lecturer": "TBA4"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 02",
+            "day": "SUN",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "Lab 06",
+            "day": "WED",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A005",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A035",
+            "lecturer": "TBA4"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 04",
+            "day": "TUE",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "LAB 07",
+            "day": "SUN",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A007",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 01",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A123",
+            "lecturer": "TBA"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 07",
+            "day": "WED",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "LAB 07",
+            "day": "SUN",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A007",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 01",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A123",
+            "lecturer": "TBA"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 08",
+            "day": "WED",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A035",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],
+    [
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "LAB 07",
+            "day": "SUN",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A007",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 01",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A123",
+            "lecturer": "TBA"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 01",
+            "day": "SUN",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],[
+        {
+            "course": "CET211",
+            "class": "Lecture 02",
+            "day": "MON",
+            "start": "9:00",
+            "end": "11:30",
+            "location": "A016",
+            "lecturer": "Hesham Ali Ibrahim Sakr"
+        },
+        {
+            "course": "CET211",
+            "class": "Lab 03",
+            "day": "THU",
+            "start": "11:40",
+            "end": "14:10",
+            "location": "A006",
+            "lecturer": "Aya Abdelnaby Ahmed Fegla"
+        },
+        {
+            "course": "CET212",
+            "class": "Lecture 06",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET212",
+            "class": "LAB 12",
+            "day": "WED",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "CET213",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "CET213",
+            "class": "Lab 01",
+            "day": "MON",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A007",
+            "lecturer": ""
+        },
+        {
+            "course": "CET214",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "CET214",
+            "class": "LAB 08",
+            "day": "WED",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A031",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "CET291",
+            "class": "Lecture 01",
+            "day": "MON",
+            "start": "12:40",
+            "end": "14:20",
+            "location": "A123",
+            "lecturer": "TBA"
+        },
+        {
+            "course": "HUM231",
+            "class": "Lec 07",
+            "day": "WED",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A113",
+            "details": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ],[
+        {
+            "course": "Options",
+            "class": "Your Schedule",
+            "day": "MON",
+            "start": "14:00",
+            "end": "15:00",
+            "location": "A016",
+            "details": "See your schedule",
+            "action": "../../html/myschedule.html"
+        },
+        {
+            "course": "Options",
+            "class": "Schedule Finder",
+            "day": "TUE",
+            "start": "11:00",
+            "end": "13:00",
+            "location": "A006",
+            "details": "Find a schedule Tailored to your Needs",
+            "action": "../../html/scheduleFinder.html"
+        },
+        {
+            "course": "Options",
+            "class": "Coming Soon",
+            "day": "WED",
+            "start": "14:00",
+            "end": "15:00",
+            "location": "A034",
+            "details": "Still not finished",
+            "action": "#"
+        },
+        {
+            "course": "Warn",
+            "class": "Alert!!!",
+            "day": "THU",
+            "start": "9:00",
+            "end": "11:40",
+            "location": "A005",
+            "lecturer": "Nahla Hafez Saeed Abd Elghany Abozied"
+        },
+        {
+            "course": "Filler",
+            "class": "Lecture 01",
+            "day": "SUN",
+            "start": "10:50",
+            "end": "12:30",
+            "location": "A034",
+            "lecturer": "Alyaa Abdo Hamza Abdelrahman"
+        },
+        {
+            "course": "Options",
+            "class": "Made by Ali Yassin",
+            "day": "THU",
+            "start": "16:00",
+            "end": "17:00",
+            "location": "A007",
+            "details": "See LinkedIn Profile",
+            "action": "https://www.linkedin.com/in/ali13yassin/"
+        },
+        {
+            "course": "Filler",
+            "class": "Lecture 04",
+            "day": "TUE",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A035",
+            "lecturer": "Abdelgwad Mohamed Abdelgwad Elashry"
+        },
+        {
+            "course": "Filler",
+            "class": "LAB 07",
+            "day": "SUN",
+            "start": "9:00",
+            "end": "10:40",
+            "location": "A007",
+            "lecturer": "Andrew Adel Labib Doss"
+        },
+        {
+            "course": "Filler",
+            "class": "Lecture 01",
+            "day": "MON",
+            "start": "8:40",
+            "end": "9:20",
+            "location": "A123",
+            "lecturer": "TBA"
+        },
+        {
+            "course": "Filler",
+            "class": "Lec 02",
+            "day": "SUN",
+            "start": "14:20",
+            "end": "16:00",
+            "location": "A113",
+            "lecturer": "Mariam Ahmed Sameh Mohamed Ahmed Abbady"
+        }
+    ]
+]

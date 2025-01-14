@@ -68,7 +68,7 @@ function generateSchedules(courses,courseDetails, currentSchedule = [], results 
 
                 // Check for conflicts and proceed if none
                 if (isValidSchedule(newSchedule)) {
-                    if(results.length == 1000){ // Limiting the number of schedules to 240000
+                    if(results.length == 100){ // Limiting the number of schedules to 240000
                         return results;
                     }else{
                         generateSchedules(remainingCourses, courseDetails, newSchedule, results);
@@ -116,6 +116,6 @@ export function findSchedule(courseKeys,filterData){
         console.log("Checking for labs or tutorials after lectures");
         schedules = checkLabOrTutorialAfterLecture(schedules);
     }
-    
+    console.log(schedules);
     return schedules;
 }

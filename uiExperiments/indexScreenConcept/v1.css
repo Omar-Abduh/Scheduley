@@ -1,20 +1,40 @@
+@font-face {
+    font-family: 'Manrope';
+    src: url('../../assets/fonts/Manrope-Variable.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+body {
+    margin: 20px;
+    font-family: 'Manrope';
+}
+#schedule-box{
+    border-radius: 15px;
+    border: 5px solid #CE3602; /* Change the color by modifying the hex code */
+    
+}
+
 /* Schedule Container */
 .schedule-container {
     display: flex;
     flex-direction: column;
-    /* border: 1px solid #ddd; */
+    width: 100%;
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white;
-    outline: 2px solid #FF5733; /* TODO: fix*/
+    
 }
 
 /* Day Labels */
 .day-labels-container {
     display: flex;
+    width: 100%;
     border-bottom: 1px solid #ddd;
     background-color: #f8f8f8;
+    border-top-left-radius: 15px; /* To prevent cliping with the orange border */
+    border-top-right-radius: 15px;
 }
 
 .time-label-placeholder {
@@ -58,7 +78,7 @@
     align-items: center;
     border-bottom: 1px solid #ddd;
     font-size: 12px;
-    color: #666;
+    color: #667;
 }
 
 /* Day Columns */
@@ -97,42 +117,76 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .schedule-container {
-        flex-direction: column;
+    #schedule-box {
+        max-width: 100%;
+        overflow-x: auto;
     }
 
-    .time-column {
-        display: none; /* Hide the time column to save space */
+    .schedule-container {
+        min-width: 600px; /* Ensure minimum width for content */
+        overflow-x: auto;
     }
 
     .day-labels-container {
-        flex-wrap: wrap; /* Allow day labels to wrap */
-        justify-content: center; /* Center-align labels */
-    }
-
-    .day-label {
-        flex: none;
-        width: 20%; /* Adjust width of each day label */
-        font-size: 12px; /* Slightly smaller font */
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background: #f8f8f8;
+        min-width: 600px;
     }
 
     .schedule-grid {
-        display: grid; /* Use grid layout for better control */
-        grid-template-columns: 1fr; /* Stack all columns vertically */
+        display: flex;
+        flex-direction: row;
     }
 
     .day-column {
-        grid-column: 1; /* Span the entire row */
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-        overflow-x: auto; /* Allow horizontal scrolling if needed */
+        flex: 1;
+        min-width: 100px;
     }
 
-    .day-cell {
-        height: auto; /* Let height adjust dynamically */
+    .time-column {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        background: #f8f8f8;
     }
 
     .class-block {
-        font-size: 10px; /* Adjust text size */
+        width: 90%;
+        left: 5%;
     }
+}
+
+/* Add smaller screen adjustments */
+@media (max-width: 480px) {
+    body {
+        margin: 10px;
+    }
+    
+    .day-label {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .time-slot {
+        font-size: 11px;
+    }
+}
+
+/* Schedule buttons styling start */
+.Options {
+    transition: all 0.3s ease;
+}
+
+.Options:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    animation: 0.5s ease;
+}
+
+.Options:active {
+    background-color: #B32F02;
+    transform: scale(0.98);
 }
