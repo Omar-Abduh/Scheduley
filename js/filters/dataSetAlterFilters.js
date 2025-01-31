@@ -1,4 +1,4 @@
-export function specificDaysFilter(data, chosenDays) {
+function specificDaysFilter(data, chosenDays) {
   const result = {};
 
   for (const course in data) {
@@ -22,7 +22,7 @@ export function specificDaysFilter(data, chosenDays) {
 }
 
 //Allows the user to filter out specific sessions from the schedule
-export function removeSessionsFilter(data, sessionsToRemove) {
+function removeSessionsFilter(data, sessionsToRemove) {
 const result = {};
 
 for (const course in data) {

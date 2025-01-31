@@ -1,7 +1,8 @@
-import { findSchedule } from './scheduleFinder.js';  // Adjust the path as needed
+// import { findSchedule } from './scheduleFinder.js';  // Adjust the path as needed
 import { initFileHandler } from './filesHandler.js';
 import { renderSchedule } from './uiFunctions.js';
 import { showAlert } from './alert.js';
+let worker = new Worker("../js/scheduleFinder.js");
 
 // Initialize the file handler
 initFileHandler(); //TODO: only load when needed
@@ -78,12 +79,13 @@ document.getElementById("show-course-details-button").addEventListener("click", 
             const singleCourseSchedule = {
                 [courseId]: courseData.sessions
             };
-            renderSchedule(singleCourseSchedule);
+            renderSchedule(singleCourseSchedule, "right-panel");
             } else {
                 console.log(JSON.parse(localStorage.getItem('coursesData'))[courseId]);
                 showAlert("No sessions", "This course has no available sessions");
             }
         });
+        
     }
     document.getElementById("course-selection-container").style.display = "none";
     document.getElementById("course-details-container").style.display = "block";
@@ -98,12 +100,24 @@ document.getElementById("show-filter-menu-button").addEventListener("click", fun
 // Make schedule button
 document.getElementById("processButton").addEventListener("click", function() {
     const filterData = getSelectedFilters();
-    window.allSchedules = findSchedule(selectedResults,filterData);
-    console.log("Total schedules found: " + allSchedules.length);
-    document.getElementById("center-container").style.display = "none";
-    document.getElementById("schedule-details-container").style.display = "block";
-    renderSchedule(allSchedules[0]);
-    viewIndex = 0;
+    worker.postMessage({selectedResults, filterData, coursesData: JSON.parse(localStorage.getItem('coursesData'))});
+    worker.onmessage = function(e) {
+        let data = e.data;
+        console.log(data);
+        if (data.type === "error") {
+            console.error("Worker error:", data.message);
+            return;
+        }
+        window.allSchedules = data.schedules;
+        console.log("Total schedules found: " + allSchedules.length);
+        document.getElementById("center-container").style.display = "none";
+        document.getElementById("schedule-details-container").style.display = "block";
+        renderSchedule(allSchedules[0], "schedule-details-container");
+        viewIndex = 0;
+    };
+    worker.onerror = function(event) {
+        console.error("Worker error:", event.message);
+    };
 });
 
 document.getElementById("back").addEventListener("click", function() {
@@ -111,7 +125,7 @@ document.getElementById("back").addEventListener("click", function() {
     if(viewIndex < 0){
         viewIndex = allSchedules.length - 1;
     }
-    renderSchedule(allSchedules[viewIndex]);
+    renderSchedule(allSchedules[viewIndex], "schedule-details-container");
 });
 
 document.getElementById("next").addEventListener("click", function() {
@@ -119,7 +133,7 @@ document.getElementById("next").addEventListener("click", function() {
     if(viewIndex >= allSchedules.length){
         viewIndex = 0;
     }
-    renderSchedule(allSchedules[viewIndex]);
+    renderSchedule(allSchedules[viewIndex], "schedule-details-container");
 });
 
 document.getElementById("save-schedule-button").addEventListener("click", function() {

@@ -4,7 +4,7 @@ function timeToMinutes(time) {
     return hours * 60 + minutes;
 }
 
-export function numOfDaysFilter(schedules) {
+function numOfDaysFilter(schedules) {
     const classifications = {};
 
     for (const schedule of schedules) {
@@ -25,7 +25,7 @@ export function numOfDaysFilter(schedules) {
     return classifications;
 }
 
-export function findSchedulesWithGaps(schedules) {
+function findSchedulesWithGaps(schedules) {
     // Check for no back-to-back sessions in a single schedule
     const hasNoBackToBack = (schedule) => {
         // Group sessions by day
@@ -65,7 +65,7 @@ export function findSchedulesWithGaps(schedules) {
     return schedules.filter(hasNoBackToBack);
 }
 
-export function checkLabOrTutorialAfterLecture(schedules) {
+function checkLabOrTutorialAfterLecture(schedules) {
     // Check if labs/tutorials occur after the corresponding lecture in a single schedule
     const hasValidLabOrTutorial = (schedule) => {
         // Group sessions by course

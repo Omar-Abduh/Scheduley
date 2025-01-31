@@ -1,5 +1,5 @@
-import { specificDaysFilter,removeSessionsFilter } from './filters/dataSetAlterFilters.js';
-import { numOfDaysFilter,findSchedulesWithGaps,checkLabOrTutorialAfterLecture } from './filters/postGenFilters.js';
+importScripts('./filters/dataSetAlterFilters.js');
+importScripts('./filters/postGenFilters.js');
 
 // Conflict cache to store known conflicts
 const conflictCache = new Set();
@@ -39,7 +39,6 @@ function isValidSchedule(schedule) {
 
 // Recursive function to generate all valid schedules
 function generateSchedules(courses,courseDetails, currentSchedule = [], results = []) {
-    
     if (courses.length === 0) {
         // If no more courses to add, check for validity
         if (isValidSchedule(currentSchedule)) {
@@ -81,13 +80,13 @@ function generateSchedules(courses,courseDetails, currentSchedule = [], results 
 }
 
 // Function to determine the filter settings and return the schedules that match the filter settings
-export function findSchedule(courseKeys,filterData){
+function findSchedule(courseKeys,filterData, courseData){
 
     // Get the course details for the selected courses
     let courseDetails = {};
     for (let courseKey of courseKeys) {
-        if (courses[courseKey]) { 
-            courseDetails[courseKey] = courses[courseKey];
+        if (courseData[courseKey]) { 
+            courseDetails[courseKey] = courseData[courseKey];
         }
     }
     
@@ -116,6 +115,26 @@ export function findSchedule(courseKeys,filterData){
         console.log("Checking for labs or tutorials after lectures");
         schedules = checkLabOrTutorialAfterLecture(schedules);
     }
-    console.log(schedules);
+    
     return schedules;
 }
+
+// Add message handler
+self.onmessage = function(e) {
+    const { selectedResults, filterData , coursesData} = e.data;
+
+    try {
+        const schedules = findSchedule(selectedResults, filterData, coursesData);
+        self.postMessage({ 
+            type: 'success',
+            schedules: schedules 
+        });
+    } catch (error) {
+        self.postMessage({ 
+            type: 'error',
+            message: error.message || 'An unknown error occurred',
+            line: error.lineNumber || 'unknown',
+            stack: error.stack || 'No stack trace available'
+        });
+    }
+};
