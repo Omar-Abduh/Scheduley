@@ -9,6 +9,12 @@ body {
     margin: 20px;
     font-family: 'Manrope';
 }
+
+/* To make the user have to scroll to get to the footer */
+#all-container {
+    min-height: 100vh;
+}
+
 #fileInput {
     margin-bottom: 20px;
 }
@@ -112,41 +118,59 @@ button:active {
     right: 0;
 }
 
+/* Course details */
+.container {
+    display: grid;
+    grid-template-columns: 20% 80%; /* Adjust column sizes */
+}
+.left-panel {
+    /* width: 250px; */
+    padding: 10px;
+}
+
+.search-box {
+    width: 100%;
+    height: 5%;
+    /* padding: 5px; Clips when enabled, small when disabled */
+    border: 2px solid #c02f00;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
 /* Error screen layout */
 
 #errorOverlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(255, 255, 255, 0.5);
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 1000;
-backdrop-filter: blur(8px);
-opacity: 0; /* Initially invisible */
-visibility: hidden; /* Prevent interaction when hidden */
-transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth transition */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    opacity: 0; /* Initially invisible */
+    visibility: hidden; /* Prevent interaction when hidden */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth transition */
 }
-#errorOverlay.visible {
-opacity: 1;
-visibility: visible; /* Make visible when active */
+    #errorOverlay.visible {
+    opacity: 1;
+    visibility: visible; /* Make visible when active */
 }
 
 .errorMessage {
-padding: 20px;
-border-radius: 10px;
-text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .errorMessage h2 {
-margin: 0;
-color: #CE3602;
+    margin: 0;
+    color: #CE3602;
 }
 
 .errorMessage p {
-margin: 10px 0 20px;
-color: #CE3602;
+    margin: 10px 0 20px;
+    color: #CE3602;
 }

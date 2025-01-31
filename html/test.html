@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Maker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: white;
+            color: #c02f00;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 2px solid #c02f00;
+        }
+
+        .header h1 {
+            font-size: 40px;
+            margin: 0;
+        }
+
+        .schedule-button {
+            background: #c02f00;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .left-panel {
+            width: 250px;
+            padding: 10px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #c02f00;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .course-card {
+            background: #600;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .course-card:first-child {
+            background: #c02f00;
+        }
+
+        .schedule-container {
+            flex-grow: 1;
+            padding: 10px;
+            border: 3px solid #c02f00;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .schedule-header {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            background: #eee;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-auto-rows: 80px;
+            border-top: 1px solid #c02f00;
+            position: relative;
+        }
+
+        .class-block {
+            background: #c02f00;
+            color: white;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            position: absolute;
+        }
+
+        .class-block:nth-child(1) { top: 10px; left: 0; width: 100px; height: 50px; }
+        .class-block:nth-child(2) { top: 100px; left: 0; width: 100px; height: 50px; }
+        .class-block:nth-child(3) { top: 50px; left: 120px; width: 100px; height: 50px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Scheduley</h1>
+        <a href="#" class="schedule-button">Your Schedule</a>
+    </div>
+
+    <div class="container">
+        <div class="left-panel">
+            <input type="text" class="search-box" placeholder="Search courses...">
+            <div class="course-card">Operating Systems <br> CET212 <br> Level: 2  CR: 4.0</div>
+            <div class="course-card">Operating Systems <br> CET212 <br> Level: 2  CR: 4.0</div>
+            <div class="course-card">Operating Systems <br> CET212 <br> Level: 2  CR: 4.0</div>
+        </div>
+
+        <div id="schedule-container course-details-schedule">
+            
+        </div>
+    </div>
+
+</body>
+</html>

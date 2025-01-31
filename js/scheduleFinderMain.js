@@ -17,6 +17,7 @@ fetch('scheduleVisuals.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('schedule-container').innerHTML = data;
+        document.getElementById('right-panel').innerHTML = data;
 });
 fetch('footer.html')
     .then(response => response.text())
@@ -57,12 +58,29 @@ document.getElementById("save-import-button").addEventListener("click", function
     document.getElementById("course-selection-container").style.display = "block";
 });
 
-document.getElementById("show-filter-menu-button").addEventListener("click", function() {
+document.getElementById("show-course-details-button").addEventListener("click", function() {
     if(!selectedResults){
         showAlert("No courses selected", "Please select courses first");
         return;
     }
-    document.getElementById("course-selection-container").style.display = "none";
+    for(let i = 0; i < selectedResults.length; i++){
+        const courseId = selectedResults[i];
+        const courseData = JSON.parse(localStorage.getItem('coursesData'))[courseId];
+        
+        const courseDetailsDiv = document.createElement('div');
+        courseDetailsDiv.className = 'course-card';
+        courseDetailsDiv.innerHTML = `${courseData.title} <br> ${courseId} <br> Level: ${courseData.level}  CR: ${courseData.creditHours}`;
+        document.getElementById('left-panel').appendChild(courseDetailsDiv);
+
+        document.getElementById("course-selection-container").style.display = "none";
+        document.getElementById("course-details-container").style.display = "block";
+    }
+    
+});
+
+document.getElementById("show-filter-menu-button").addEventListener("click", function() {
+    // TODO: check if a course has no sessions chosen
+    document.getElementById("course-details-container").style.display = "none";
     document.getElementById("filter-selection-menu").style.display = "block";
 });
 

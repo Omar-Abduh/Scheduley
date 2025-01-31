@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/scheduleVisuals.css">
 </head>
 <body>
+<div id="all-container">
     <div id="navbar"></div>
     <div id="center-container" style="display: block;">
         <!-- Import and data validation stage -->
@@ -21,8 +22,22 @@
         </div>
         <!-- Course selection stage -->
         <div id="course-selection-container" style="display: none;">
+            <h2>Choose your courses</h2>
             <div class="grid-container" id="courseGrid"></div>
-            <button id="show-filter-menu-button">Next</button>
+            <button id="show-course-details-button">Next</button>
+        </div>
+        <!-- Course details menu -->
+        <div id="course-details-container" style="display: block;">
+            <h2>Edit course</h2>
+            <p>Useful when a session has no seats available</p>
+            <div class="container">
+                <div id="left-panel" class="left-panel">
+                    <input type="text" class="search-box" placeholder="Search courses...">
+                </div>
+        
+                <div id="right-panel"></div>
+                <button id="show-filter-menu-button">Next</button>
+            </div>
         </div>
         <!-- Filters menu -->
          <div id="filter-selection-menu" style="display: none;">
@@ -73,6 +88,7 @@
             <button id="close-alert">Close</button>
         </div>
     </div>
+</div>
     <div id="footer"></div>
     <script type="module" src="../js/scheduleFinderMain.js"></script>
 </body>

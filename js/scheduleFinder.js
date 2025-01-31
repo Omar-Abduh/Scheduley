@@ -90,7 +90,7 @@ export function findSchedule(courseKeys,filterData){
             courseDetails[courseKey] = courses[courseKey];
         }
     }
-
+    
     // Filter the data based on the selected days
     // if (filterData.days !== "any"){
     //     courseDetails = specificDaysFilter(courseDetails, chosenDays) //TODO: Implement this function
