@@ -18,6 +18,11 @@ fetch('scheduleVisuals.html')
     .then(data => {
         document.getElementById('schedule-container').innerHTML = data;
 });
+fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('footer').innerHTML = data;
+});
 
 function getSelectedFilters() {
     //Get filter values first

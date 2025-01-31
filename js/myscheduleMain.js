@@ -18,3 +18,8 @@ fetch('scheduleVisuals.html')
             showAlert("No schedule found", "Please make a schedule first", "scheduleFinder.html", "Find a schedule");
         }
     });
+fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('footer').innerHTML = data;
+});
