@@ -71,11 +71,22 @@ document.getElementById("show-course-details-button").addEventListener("click", 
         courseDetailsDiv.className = 'course-card';
         courseDetailsDiv.innerHTML = `${courseData.title} <br> ${courseId} <br> Level: ${courseData.level}  CR: ${courseData.creditHours}`;
         document.getElementById('left-panel').appendChild(courseDetailsDiv);
-
-        document.getElementById("course-selection-container").style.display = "none";
-        document.getElementById("course-details-container").style.display = "block";
+        courseDetailsDiv.addEventListener('click', () => {
+            const courseData = JSON.parse(localStorage.getItem('coursesData'))[courseId];
+            if (courseData && courseData.sessions) {
+            // Create a temporary schedule with just this course's sessions
+            const singleCourseSchedule = {
+                [courseId]: courseData.sessions
+            };
+            renderSchedule(singleCourseSchedule);
+            } else {
+                console.log(JSON.parse(localStorage.getItem('coursesData'))[courseId]);
+                showAlert("No sessions", "This course has no available sessions");
+            }
+        });
     }
-    
+    document.getElementById("course-selection-container").style.display = "none";
+    document.getElementById("course-details-container").style.display = "block";
 });
 
 document.getElementById("show-filter-menu-button").addEventListener("click", function() {
