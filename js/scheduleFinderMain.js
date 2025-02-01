@@ -1,5 +1,5 @@
 // import { findSchedule } from './scheduleFinder.js';  // Adjust the path as needed
-import { initFileHandler } from './filesHandler.js';
+import { initFileHandler , parseCSV } from './filesHandler.js';
 import { renderSchedule } from './uiFunctions.js';
 import { showAlert } from './alert.js';
 let worker = new Worker("../js/scheduleFinder.js");
@@ -159,7 +159,6 @@ document.getElementById("next").addEventListener("click", function() {
     if(viewIndex >= allSchedules.length){
         viewIndex = 0;
     }
-    console.log(allSchedules[viewIndex])
     renderSchedule(allSchedules[viewIndex], "schedule-details-container");
 });
 
@@ -168,6 +167,10 @@ document.getElementById("save-schedule-button").addEventListener("click", functi
     showAlert("Schedule saved", "Your schedule has been saved", "myschedule.html", "View schedule");
 });
 
+document.getElementById("upload-button").addEventListener("click", function() {
+    document.getElementById("online-import-container").style.display = "none";
+    document.getElementById("upload-container").style.display = "block";
+});
 //Course selection cards code
 export function loadCourseCardView(courses) {
     const courseGrid = document.getElementById('courseGrid');
@@ -210,3 +213,15 @@ export function loadCourseCardView(courses) {
         courseGrid.appendChild(card);
     });
 }
+
+async function fetchCSV(url) {
+    const response = await fetch(url);
+    const text = await response.text();
+    parseCSV(text);
+    document.getElementById("online-import-container").style.display = "none";
+    document.getElementById("course-selection-container").style.display = "block";
+}
+document.getElementById("SUT-online-import").addEventListener("click", function() {
+    const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQeTRwHHeotLdbmKxQqY3j6XIfD_-AoF4iErQGQOo9J3GwKLXFX9EYqQWGmpwyo7CW9djuv1Ck5efm0/pub?gid=755763171&single=true&output=csv";
+    fetchCSV(url)
+});
