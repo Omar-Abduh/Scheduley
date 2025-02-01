@@ -1,140 +1,118 @@
 importScripts('./filters/dataSetAlterFilters.js');
 importScripts('./filters/postGenFilters.js');
 
-// Conflict cache to store known conflicts
 const conflictCache = new Set();
 
-// Helper function to generate a unique key for two conflicting sessions
 function getConflictKey(session1, session2) {
     return [session1.course + session1.class, session2.course + session2.class].sort().join("-");
 }
-// Helper function to check if two time slots overlap
-function timesOverlap(class1, class2) {
-    // Check if they are on the same day
-    //const lecture = courses.CET212.lectures[2].class;
-    if (class1.day !== class2.day) return false; // No overlap if different days
 
-    return !(class1.end <= class2.start || class2.end <= class1.start); // True if they overlap
+function timesOverlap(class1, class2) {
+    if (class1.day !== class2.day) return false;
+    return !(class1.end <= class2.start || class2.end <= class1.start);
 }
-// Function to check if a schedule has any conflicts
-// Function to check if a schedule has any conflicts
+
 function isValidSchedule(schedule) {
     for (let i = 0; i < schedule.length; i++) {
         for (let j = i + 1; j < schedule.length; j++) {
             const conflictKey = getConflictKey(schedule[i], schedule[j]);
-
-            // Skip if conflict is already known
-            if (conflictCache.has(conflictKey)) {
-                return false;
-            }
-
+            if (conflictCache.has(conflictKey)) return false;
             if (timesOverlap(schedule[i], schedule[j])) {
                 conflictCache.add(conflictKey);
-                return false; // Conflict found
+                return false;
             }
         }
     }
-    return true; // No conflicts
+    return true;
 }
 
-// Recursive function to generate all valid schedules
-function generateSchedules(courses,courseDetails, currentSchedule = [], results = []) {
+// Modified to accept time limits
+function generateSchedules(courses, courseDetails, currentSchedule = [], results = [], startTime, timeLimit) {
     if (courses.length === 0) {
-        // If no more courses to add, check for validity
-        if (isValidSchedule(currentSchedule)) {
-            results.push([...currentSchedule]); // Store valid schedule
-        }
-        return;
+        if (isValidSchedule(currentSchedule)) results.push([...currentSchedule]);
+        return results;
     }
 
-    // Get the first course and iterate over each of its time slots
-    // const [course, ...remainingCourses] = selectedResults;
     const [course, ...remainingCourses] = courses;
     const { lectures = [], labs = [], tutorials = [] } = courseDetails[course];
-    
     const lectureOptions = lectures.length ? lectures : [null];
     const labOptions = labs.length ? labs : [null];
     const tutorialOptions = tutorials.length ? tutorials : [null];
 
-    for (let lectureTime of lectureOptions) {
-        for (let labTime of labOptions) {
-            for (let tutorialTime of tutorialOptions) {
-                const newSchedule = [...currentSchedule,
-                    ...(lectureTime ? [lectureTime] : []),  // Add lecture if present
-                    ...(labTime ? [labTime] : []),          // Add lab if present
-                    ...(tutorialTime ? [tutorialTime] : []) // Add tutorial if present
-                ];
+    for (const lectureTime of lectureOptions) {
+        for (const labTime of labOptions) {
+            for (const tutorialTime of tutorialOptions) {
+                // Check time limit
+                if (performance.now() - startTime > timeLimit) return results;
 
-                // Check for conflicts and proceed if none
+                const newSchedule = [...currentSchedule];
+                if (lectureTime) newSchedule.push(lectureTime);
+                if (labTime) newSchedule.push(labTime);
+                if (tutorialTime) newSchedule.push(tutorialTime);
+
                 if (isValidSchedule(newSchedule)) {
-                    if(results.length == 100){ // Limiting the number of schedules to 240000
-                        return results;
-                    }else{
-                        generateSchedules(remainingCourses, courseDetails, newSchedule, results);
-                    }
+                    if (performance.now() - startTime > timeLimit) return results;
+                    generateSchedules(remainingCourses, courseDetails, newSchedule, results, startTime, timeLimit);
+                    if (performance.now() - startTime > timeLimit) return results;
                 }
             }
         }
     }
-    return results; // Contains all valid schedules
+    return results;
 }
 
-// Function to determine the filter settings and return the schedules that match the filter settings
-function findSchedule(courseKeys,filterData, courseData){
+// Simple benchmark to estimate device performance
+function runBenchmark() {
+    const start = performance.now();
+    let sum = 0;
+    for (let i = 0; i < 1000000; i++) sum += i;
+    return performance.now() - start;
+}
 
-    // Get the course details for the selected courses
+function findSchedule(courseKeys, filterData, courseData) {
     let courseDetails = {};
-    for (let courseKey of courseKeys) {
-        if (courseData[courseKey]) { 
-            courseDetails[courseKey] = courseData[courseKey];
-        }
+    for (const courseKey of courseKeys) {
+        if (courseData[courseKey]) courseDetails[courseKey] = courseData[courseKey];
     }
-    
-    // Filter the data based on the selected days
-    // if (filterData.days !== "any"){
-    //     courseDetails = specificDaysFilter(courseDetails, chosenDays) //TODO: Implement this function
-    // }
-    
-    // Generate the schedules
-    let schedules = generateSchedules(courseKeys,courseDetails);
 
-    // Filter the schedules based on the number of days
-    if (filterData.numOfDays !== "any"){
-        let returnedDays = numOfDaysFilter(schedules); //TODO: change implementation to return all filtered values
-        schedules = returnedDays[filterData.numOfDays];
+    // Determine time budget based on benchmark
+    const benchmarkTime = runBenchmark();
+    const timeBudget = 2000; // Max 2 seconds allowed
+    const startTime = performance.now();
+    const timeLimit = timeBudget - benchmarkTime; // Adjust based on benchmark
+
+    // Generate schedules with dynamic time limit
+    let schedules = generateSchedules(courseKeys, courseDetails, [], [], startTime, timeLimit);
+
+    // Apply filters
+    if (filterData.numOfDays !== "any") {
+        schedules = numOfDaysFilter(schedules)[filterData.numOfDays];
     }
-    
-    // Filter the schedules based on the gaps
-    if (filterData.gaps === "true"){
-        console.log("Checking for schedules with gaps");
+    if (filterData.gaps === "true") {
         schedules = findSchedulesWithGaps(schedules);
     }
-
-    // Filter the schedules based on the labs or tutorials after lectures
-    if (filterData.labOrTutorialAfterLecture === "true"){
-        console.log("Checking for labs or tutorials after lectures");
+    if (filterData.labOrTutorialAfterLecture === "true") {
         schedules = checkLabOrTutorialAfterLecture(schedules);
     }
+
+    schedules = shuffleArray(schedules);
     
     return schedules;
 }
-
-// Add message handler
+function shuffleArray(array) {
+    let shuffledArray = [...array]; // Create a copy to avoid modifying the original array
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1)); // Get a random index
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]; // Swap elements
+    }
+    return shuffledArray;
+}
 self.onmessage = function(e) {
-    const { selectedResults, filterData , coursesData} = e.data;
-
+    const { selectedResults, filterData, coursesData } = e.data;
     try {
         const schedules = findSchedule(selectedResults, filterData, coursesData);
-        self.postMessage({ 
-            type: 'success',
-            schedules: schedules 
-        });
+        self.postMessage({ type: 'success', schedules });
     } catch (error) {
-        self.postMessage({ 
-            type: 'error',
-            message: error.message || 'An unknown error occurred',
-            line: error.lineNumber || 'unknown',
-            stack: error.stack || 'No stack trace available'
-        });
+        self.postMessage({ type: 'error', message: error.message });
     }
 };
