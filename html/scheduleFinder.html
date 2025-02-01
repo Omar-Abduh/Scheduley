@@ -47,6 +47,10 @@
                     <h3>Number of days</h3>
                     <input type="radio" id="numOfDaysFilter-any-checkbox" name="numOfDays" value="any" checked>
                     <label for="numOfDaysFilter-any-checkbox">Any</label>
+                    <input type="radio" id="numOfDaysFilter-1days-checkbox" name="numOfDays" value="1">
+                    <label for="numOfDaysFilter-1days-checkbox">1 Day</label>
+                    <input type="radio" id="numOfDaysFilter-2days-checkbox" name="numOfDays" value="2">
+                    <label for="numOfDaysFilter-2days-checkbox">2 Days</label>
                     <input type="radio" id="numOfDaysFilter-3days-checkbox" name="numOfDays" value="3">
                     <label for="numOfDaysFilter-3days-checkbox">3 Days</label>
                     <input type="radio" id="numOfDaysFilter-4days-checkbox" name="numOfDays" value="4">
@@ -72,6 +76,12 @@
             <!-- <button id="back">Back</button> -->
             <button id="processButton">Generate Schedule</button>
          </div>
+    </div>
+    <div id="processOverlay">
+        <div class="processMessage">
+            <h2 id="process-title">Finding your Schedule</h2>
+            <!-- <p id="process-text">Something went wrong. Please try again later.</p> -->
+        </div>
     </div>
     <!-- Schedule confirmation menu -->
     <div id="schedule-details-container" style="display: none;">

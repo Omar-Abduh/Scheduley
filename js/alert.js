@@ -20,6 +20,4 @@ export function showAlert(title, message = "", action=null, actionText=null) {
             errorOverlay.style.visibility = "hidden";
         });
     }
-    
-    
 }

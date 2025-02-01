@@ -100,7 +100,10 @@ document.getElementById("show-filter-menu-button").addEventListener("click", fun
 // Make schedule button
 document.getElementById("processButton").addEventListener("click", function() {
     const filterData = getSelectedFilters();
+    const startTime = Date.now();
     worker.postMessage({selectedResults, filterData, coursesData: JSON.parse(localStorage.getItem('coursesData'))});
+    errorOverlay.style.opacity = "1"; // Make visible
+    errorOverlay.style.visibility = "visible";
     worker.onmessage = function(e) {
         let data = e.data;
         console.log(data);
@@ -108,12 +111,32 @@ document.getElementById("processButton").addEventListener("click", function() {
             console.error("Worker error:", data.message);
             return;
         }
-        window.allSchedules = data.schedules;
-        console.log("Total schedules found: " + allSchedules.length);
-        document.getElementById("center-container").style.display = "none";
-        document.getElementById("schedule-details-container").style.display = "block";
-        renderSchedule(allSchedules[0], "schedule-details-container");
-        viewIndex = 0;
+        
+        const timeElapsed = Date.now() - startTime;
+        const minimumLoadTime = 5000; // 10 seconds
+
+        const processResults = () => {
+            if (data.schedules.length === 0) {
+                showAlert("No schedules found", "Try adjusting your filters");
+                errorOverlay.style.opacity = "0";
+                errorOverlay.style.visibility = "hidden";
+                return;
+            }
+            window.allSchedules = data.schedules;
+            console.log("Total schedules found: " + allSchedules.length);
+            document.getElementById("center-container").style.display = "none";
+            document.getElementById("schedule-details-container").style.display = "block";
+            renderSchedule(allSchedules[0], "schedule-details-container");
+            viewIndex = 0;
+            errorOverlay.style.opacity = "0";
+            errorOverlay.style.visibility = "hidden";
+        };
+
+        if (timeElapsed < minimumLoadTime) {
+            setTimeout(processResults, minimumLoadTime - timeElapsed);
+        } else {
+            processResults();
+        }
     };
     worker.onerror = function(event) {
         console.error("Worker error:", event.message);
@@ -133,6 +156,7 @@ document.getElementById("next").addEventListener("click", function() {
     if(viewIndex >= allSchedules.length){
         viewIndex = 0;
     }
+    console.log(allSchedules[viewIndex])
     renderSchedule(allSchedules[viewIndex], "schedule-details-container");
 });
 
@@ -182,4 +206,14 @@ export function loadCourseCardView(courses) {
 
         courseGrid.appendChild(card);
     });
+}
+
+const errorOverlay = document.getElementById("processOverlay");
+function showOverlay() {
+    errorOverlay.style.opacity = "1"; // Make visible
+    errorOverlay.style.visibility = "visible";
+    // document.getElementById("alert-title").textContent = title;
+    // document.getElementById("alert-text").textContent = message;
+    errorOverlay.style.opacity = "0"; // Make invisible
+    errorOverlay.style.visibility = "hidden";
 }
