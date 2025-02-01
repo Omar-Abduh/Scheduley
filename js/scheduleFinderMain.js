@@ -31,12 +31,14 @@ function getSelectedFilters() {
     const chosenDays = document.querySelector('input[name="numOfDays"]:checked');
     const chosenGaps = document.querySelector('input[name="findSchedulesWithGaps"]:checked');
     const chosenLabOrTutorialAfterLecture = document.querySelector('input[name="checkLabOrTutorialAfterLecture"]:checked');
+    const chosenRemoveSingleSessionDays = document.querySelector('input[name="removeSingleSessionDays"]:checked');
     //Pack the filter values into an object to pass to the schedule generator
     const filterData = {
         days: chosenDays ? chosenDays.value : "any", //default to any if no value is selected
         numOfDays: chosenDays ? chosenDays.value : "any", //default to any if no value is selected
         gaps: chosenGaps ? chosenGaps.value : false, //default to false if no value is selected
-        labOrTutorialAfterLecture: chosenLabOrTutorialAfterLecture ? chosenLabOrTutorialAfterLecture.value : false //default to false if no value is selected
+        labOrTutorialAfterLecture: chosenLabOrTutorialAfterLecture ? chosenLabOrTutorialAfterLecture.value : false, //default to false if no value is selected
+        chosenRemoveSingleSessionDays: chosenRemoveSingleSessionDays ? chosenRemoveSingleSessionDays.value : false //default to false if no value is selected
     };
     return filterData;
 }
@@ -102,13 +104,16 @@ document.getElementById("processButton").addEventListener("click", function() {
     const filterData = getSelectedFilters();
     const startTime = Date.now();
     worker.postMessage({selectedResults, filterData, coursesData: JSON.parse(localStorage.getItem('coursesData'))});
-    errorOverlay.style.opacity = "1"; // Make visible
-    errorOverlay.style.visibility = "visible";
+    processOverlay.style.opacity = "1"; // Make visible
+    processOverlay.style.visibility = "visible";
     worker.onmessage = function(e) {
         let data = e.data;
         console.log(data);
         if (data.type === "error") {
             console.error("Worker error:", data.message);
+            showAlert("An error happened", "Please try again");
+            processOverlay.style.opacity = "0";
+            processOverlay.style.visibility = "hidden";
             return;
         }
         
@@ -118,8 +123,6 @@ document.getElementById("processButton").addEventListener("click", function() {
         const processResults = () => {
             if (data.schedules.length === 0) {
                 showAlert("No schedules found", "Try adjusting your filters");
-                errorOverlay.style.opacity = "0";
-                errorOverlay.style.visibility = "hidden";
                 return;
             }
             window.allSchedules = data.schedules;
@@ -128,8 +131,8 @@ document.getElementById("processButton").addEventListener("click", function() {
             document.getElementById("schedule-details-container").style.display = "block";
             renderSchedule(allSchedules[0], "schedule-details-container");
             viewIndex = 0;
-            errorOverlay.style.opacity = "0";
-            errorOverlay.style.visibility = "hidden";
+            processOverlay.style.opacity = "0";
+            processOverlay.style.visibility = "hidden";
         };
 
         if (timeElapsed < minimumLoadTime) {
@@ -206,14 +209,4 @@ export function loadCourseCardView(courses) {
 
         courseGrid.appendChild(card);
     });
-}
-
-const errorOverlay = document.getElementById("processOverlay");
-function showOverlay() {
-    errorOverlay.style.opacity = "1"; // Make visible
-    errorOverlay.style.visibility = "visible";
-    // document.getElementById("alert-title").textContent = title;
-    // document.getElementById("alert-text").textContent = message;
-    errorOverlay.style.opacity = "0"; // Make invisible
-    errorOverlay.style.visibility = "hidden";
 }

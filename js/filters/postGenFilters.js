@@ -105,3 +105,19 @@ function checkLabOrTutorialAfterLecture(schedules) {
     // Filter schedules with valid lab/tutorial times
     return schedules.filter(hasValidLabOrTutorial);
 }
+
+function removeSingleSessionDays(schedules) {
+    const hasNoSingleSessionDays = (schedule) => {
+        // Count sessions per day
+        const dayCounts = schedule.reduce((counts, session) => {
+            counts[session.day] = (counts[session.day] || 0) + 1;
+            return counts;
+        }, {});
+
+        // Check if all days have more than one session
+        return Object.values(dayCounts).every(count => count > 1);
+    };
+
+    // Filter schedules that have no single-session days
+    return schedules.filter(hasNoSingleSessionDays);
+}
