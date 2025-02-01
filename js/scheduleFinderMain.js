@@ -90,7 +90,8 @@ document.getElementById("show-course-details-button").addEventListener("click", 
         
     }
     document.getElementById("course-selection-container").style.display = "none";
-    document.getElementById("course-details-container").style.display = "block";
+    document.getElementById("filter-selection-menu").style.display = "block";
+    // document.getElementById("course-details-container").style.display = "block";
 });
 
 document.getElementById("show-filter-menu-button").addEventListener("click", function() {

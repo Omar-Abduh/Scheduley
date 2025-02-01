@@ -82,9 +82,9 @@ function findSchedule(courseKeys, filterData, courseData) {
     const timeLimit = timeBudget - benchmarkTime; // Adjust based on benchmark
 
     // Filter the data based on the selected days
-    if (filterData.days !== "any"){
-        courseDetails = specificDaysFilter(courseDetails, chosenDays) //TODO: Implement this function
-    }
+    // if (filterData.days !== "any"){
+    //     courseDetails = specificDaysFilter(courseDetails, chosenDays) //TODO: Implement this function
+    // }
     
     // Generate schedules with dynamic time limit
     let schedules = generateSchedules(courseKeys, courseDetails, [], [], startTime, timeLimit);
