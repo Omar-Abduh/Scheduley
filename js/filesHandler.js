@@ -21,25 +21,39 @@ function handleFileInput(file) {
 }
 
 // Modified parseCSV to accept string content
-export function parseCSV(csvContent){
+export function parseCSV(csvContent) {
     const rows = csvContent.split("\n").map(row => row.trim());
     const headers = rows[0].split(",").map(header => header.trim());
     const courses = {};
+    const courseDetails = {}; // New object for course metadata
 
     for (let i = 1; i < rows.length; i++) {
         const values = rows[i].split(",").map(value => value.trim());
 
         if (values.length !== headers.length) {
             console.warn(`Skipping row ${i} due to mismatched columns`);
-            console.log(values.length, headers.length);
-            continue; // Skip any row that doesn't match header columns
+            continue;
         }
 
-        const entry = {}; // Create an object to map headers to values
+        const entry = {};
         headers.forEach((header, index) => {
             entry[header] = values[index];
         });
 
+        // Extract course metadata if fields exist
+        const courseCode = entry['Course code'];
+        if (courseCode) {
+            if (!courseDetails[courseCode]) {
+                courseDetails[courseCode] = {
+                    courseName: entry['Course name'],
+                    creditHours: entry['Credit hours'],
+                    level: entry['Level'],
+                    program: entry['program']
+                };
+            }
+        }
+
+        // Existing session processing logic
         const { course, class: className, day, start, end, location, lecturer, type } = entry;
 
         if (!course || !type) {
@@ -47,32 +61,36 @@ export function parseCSV(csvContent){
             continue;
         }
 
-        // Initialize the course if it doesn't exist
         if (!courses[course]) {
             courses[course] = { lectures: [], labs: [], tutorials: [] };
         }
 
         const session = { course, class: className, day, start, end, location, lecturer };
 
-        // Add the session to the appropriate array based on the type
-        if (type === "LEC") {
-            courses[course].lectures.push(session);
-        } else if (type === "LAB") {
-            courses[course].labs.push(session);
-        } else if (type === "Tutorials") {
-            courses[course].tutorials.push(session);
-        } else {
-            console.warn(`Unrecognized type '${type}' at row ${i}`);
+        switch (type) {
+            case "LEC":
+                courses[course].lectures.push(session);
+                break;
+            case "LAB":
+                courses[course].labs.push(session);
+                break;
+            case "Tutorials":
+                courses[course].tutorials.push(session);
+                break;
+            default:
+                console.warn(`Unrecognized type '${type}' at row ${i}`);
         }
     }
 
-    // Load the course cards view
+    // Pass both datasets to the view if needed (modify loadCourseCardView as required)
     loadCourseCardView(courses);
     
-    // Store the courses data
+    // Store data globally and in localStorage
     window.courses = courses;
+    window.courseDetails = courseDetails;
     localStorage.setItem('coursesData', JSON.stringify(courses));
-    localStorage.setItem('coursesDataDate', JSON.stringify(new Date().toISOString()));
+    localStorage.setItem('courseDetails', JSON.stringify(courseDetails));
+    localStorage.setItem('coursesDataDate', new Date().toISOString());
 }
 
 //--------------------End of import code--------------------

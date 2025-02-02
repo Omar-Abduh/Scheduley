@@ -105,16 +105,14 @@ document.getElementById("processButton").addEventListener("click", function() {
     const filterData = getSelectedFilters();
     const startTime = Date.now();
     worker.postMessage({selectedResults, filterData, coursesData: JSON.parse(localStorage.getItem('coursesData'))});
-    processOverlay.style.opacity = "1"; // Make visible
-    processOverlay.style.visibility = "visible";
+    showLoadingOverlay("Finding Your Schedule");
     worker.onmessage = function(e) {
         let data = e.data;
         console.log(data);
         if (data.type === "error") {
             console.error("Worker error:", data.message);
             showAlert("An error happened", "Please try again");
-            processOverlay.style.opacity = "0";
-            processOverlay.style.visibility = "hidden";
+            hideLoadingOverlay();
             return;
         }
         
@@ -124,6 +122,7 @@ document.getElementById("processButton").addEventListener("click", function() {
         const processResults = () => {
             if (data.schedules.length === 0) {
                 showAlert("No schedules found", "Try adjusting your filters");
+                hideLoadingOverlay();
                 return;
             }
             window.allSchedules = data.schedules;
@@ -132,8 +131,7 @@ document.getElementById("processButton").addEventListener("click", function() {
             document.getElementById("schedule-details-container").style.display = "block";
             renderSchedule(allSchedules[0], "schedule-details-container");
             viewIndex = 0;
-            processOverlay.style.opacity = "0";
-            processOverlay.style.visibility = "hidden";
+            hideLoadingOverlay();
         };
 
         if (timeElapsed < minimumLoadTime) {
@@ -165,7 +163,7 @@ document.getElementById("next").addEventListener("click", function() {
 
 document.getElementById("save-schedule-button").addEventListener("click", function() {
     localStorage.setItem('savedSchedule', JSON.stringify(allSchedules[viewIndex]));
-    showAlert("Schedule saved", "Your schedule has been saved", "myschedule.html", "View schedule");
+    showAlert("Schedule saved", "This DOES NOT register you in this course, you need to manually register in SIS!", "myschedule.html", "View schedule");
 });
 
 document.getElementById("upload-button").addEventListener("click", function() {
@@ -176,18 +174,22 @@ document.getElementById("upload-button").addEventListener("click", function() {
 export function loadCourseCardView(courses) {
     const courseGrid = document.getElementById('courseGrid');
     const selectedCourses = new Set(); // To track selected course IDs
-
+    // Get courses from localStorage
+    const detailsString = localStorage.getItem('courseDetails');
+    if (detailsString) {
+        const metadata = JSON.parse(detailsString);
+        courseGrid.innerHTML = ''; // Clear existing content before loading
     Object.entries(courses).forEach(([courseId, course]) => {
         const card = document.createElement('div');
         card.className = 'course-card';
         card.dataset.id = courseId; // Use the courseId (key) here
-
+        let courseInfo = metadata[courseId];
 
         //TODO: add more details to the card
         card.innerHTML = ` 
-        <div class="course-card-title">Course ID</div>
+        <div class="course-card-title">${courseInfo[courseName]}</div>
         <div class="course-card-code">${courseId}</div>
-        <div class="course-card-details">Level:2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CR:4.0</div>
+        <div class="course-card-details">Level:${courseInfo[level]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CR:${courseInfo[creditHours]}</div>
         `;
         // card.innerHTML = `
         // <div class="course-card-title">${course.title}</div>
@@ -213,6 +215,7 @@ export function loadCourseCardView(courses) {
 
         courseGrid.appendChild(card);
     });
+    }
 }
 
 async function fetchCSV(url) {
@@ -223,6 +226,17 @@ async function fetchCSV(url) {
     document.getElementById("course-selection-container").style.display = "block";
 }
 document.getElementById("SUT-online-import").addEventListener("click", function() {
+    showLoadingOverlay("Downloading information");
     const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQeTRwHHeotLdbmKxQqY3j6XIfD_-AoF4iErQGQOo9J3GwKLXFX9EYqQWGmpwyo7CW9djuv1Ck5efm0/pub?gid=755763171&single=true&output=csv";
     fetchCSV(url)
+    .then(() => hideLoadingOverlay());
 });
+function showLoadingOverlay(text){
+    processOverlay.style.opacity = "1";
+    processOverlay.style.visibility = "visible";
+    document.getElementById('process-title').textContent = text;
+}
+function hideLoadingOverlay(){
+    processOverlay.style.opacity = "0";
+    processOverlay.style.visibility = "hidden";
+}
