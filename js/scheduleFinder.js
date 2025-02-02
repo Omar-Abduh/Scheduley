@@ -119,8 +119,8 @@ self.onmessage = function(e) {
     try {
         const schedules = findSchedule(selectedResults, filterData, coursesData);
         const data = {
-            schedules: schedules.length;,
-        } 
+            schedules: schedules.length
+        };
         trackRequest(data);
         self.postMessage({ type: 'success', schedules });
     } catch (error) {
