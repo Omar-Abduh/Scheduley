@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scheduley</title>
     <style>
+        @font-face {
+            font-family: 'Manrope';
+            src: url('../assets/fonts/Manrope-Variable.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Manrope';
             text-align: center;
             margin: 0;
             padding: 0;
@@ -17,13 +24,13 @@
         .title {
             font-size: 100px;
             font-weight: bold;
-            margin: 20px 0 0 0;
+            /* margin: 20px 0 0 0; */
         }
 
         .subtitle {
             font-size: 24px;
             color: #700;
-            margin-bottom: 50px;
+            /* margin-bottom: 50px; */
         }
 
         .container {
@@ -43,7 +50,18 @@
             font-size: 24px;
             font-weight: bold;
         }
-
+        .warn-box {
+            background: #D82323;
+            color: white;
+            font-size: 28px;
+            width: 300px;
+            font-weight: bold;
+            text-align: left;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
         .highlight-box {
             background: #c02f00;
             color: white;
@@ -56,13 +74,21 @@
             justify-content: center;
         }
 
-        .highlight-box span {
+        .highlight-box .warn-box span {
             color: white;
             font-size: 40px;
             font-weight: bold;
         }
+        .highlight-box {
+            cursor: pointer;
+            transform: scale(1);
+            transition: transform 0.2s ease;
+        }
 
-        .highlight-box span:nth-child(2) {
+        .highlight-box:hover {
+            transform: scale(1.05);
+        }
+        .highlight-box .warn-box span:nth-child(2) {
             color: white;
             font-size: 40px;
             font-weight: normal;
@@ -78,14 +104,36 @@
     <div class="subtitle">Your schedule toolbox</div>
 
     <div class="container">
-        <div class="box"></div>
-        <div class="highlight-box">
+        <div class="warn-box">
+            <span>Warning</span>
+            <span>This doesn't register for you</span>
+            <p>This tool only helps you choose and plan your schedule</p>
+        </div>
+        <div id="Finder" class="highlight-box">
             <span>Schedule</span>
             <span>Finder</span>
             <p>Find a schedule that fits your needs</p>
         </div>
-        <div class="box"></div>
+        <div id="Your" class="highlight-box">
+            <span>Your</span>
+            <span>Schedule</span>
+        </div>
+        
     </div>
+    <div id="footer"></div>
+    <script>
+        document.getElementById('Finder').addEventListener('click', () => {
+            window.location.href = 'html/scheduleFinder.html';
+        });
 
+        document.getElementById('Your').addEventListener('click', () => {
+            window.location.href = 'html/mySchedule.html';
+        });
+        fetch('html/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+        });
+    </script>
 </body>
 </html>
