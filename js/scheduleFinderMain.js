@@ -187,9 +187,9 @@ export function loadCourseCardView(courses) {
              let courseInfo = metadata[courseId];
         }else{
             let courseInfo = {};
-            courseInfo[courseName] = courseId;
-            courseInfo[level] = "Unknown";
-            courseInfo[creditHours] = "Unknown";
+            courseInfo["courseName"] = courseId;
+            courseInfo["level"] = "Unknown";
+            courseInfo["creditHours"] = "Unknown";
         }
        
         //TODO: add more details to the card
