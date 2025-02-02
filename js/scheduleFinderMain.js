@@ -194,9 +194,9 @@ export function loadCourseCardView(courses) {
        
         //TODO: add more details to the card
         card.innerHTML = ` 
-        <div class="course-card-title">${courseInfo[courseName]}</div>
-        <div class="course-card-code">${courseId}</div>
-        <div class="course-card-details">Level:${courseInfo[level]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CR:${courseInfo[creditHours]}</div>
+        <div class="course-card-title">${courseInfo["courseName"]}</div>
+        <div class="course-card-code">${"courseId"}</div>
+        <div class="course-card-details">Level:${courseInfo["level"]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CR:${courseInfo["creditHours"]}</div>
         `;
         // card.innerHTML = `
         // <div class="course-card-title">${course.title}</div>
