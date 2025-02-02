@@ -118,8 +118,29 @@ self.onmessage = function(e) {
     const { selectedResults, filterData, coursesData } = e.data;
     try {
         const schedules = findSchedule(selectedResults, filterData, coursesData);
+        const data = {
+            schedules: schedules.length;,
+        } 
+        trackRequest(data);
         self.postMessage({ type: 'success', schedules });
     } catch (error) {
         self.postMessage({ type: 'error', message: error.message });
     }
 };
+function trackRequest(data){
+    const trackingUrl = 'https://script.google.com/macros/s/AKfycbxb9DgdbxyYXmDKmtHrzL3NFiJVhIecIzx-AlQAg3WH4AHycMyKTZta_T05Z1JuLdYj/exec';
+      // Send the tracking data via a POST request
+      fetch(trackingUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(result => {
+        console.log('Tracking result:', result);
+      })
+      .catch(error => console.error('Error tracking function call:', error));
+    }
+}
