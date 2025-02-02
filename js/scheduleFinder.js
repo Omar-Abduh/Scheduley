@@ -143,4 +143,3 @@ function trackRequest(data){
       })
       .catch(error => console.error('Error tracking function call:', error));
     }
-}
