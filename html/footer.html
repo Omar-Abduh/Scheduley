@@ -1,46 +1,111 @@
 <footer class="footer">
+
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </head>
     <style>
         .footer {
             background-color: #CF3501;
             color: white;
-            margin: 0;
-            padding: 0;
-            min-height: 300px;
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
-    
+
+        .footer-left {
+            font-size: 30px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+
+
+        .footer-content {
+            display: flex;
+            justify-content: center; /* Centering the sections */
+            align-items: flex-start; /* Aligning sections to the top */
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: auto;
+            margin-top: 20px;
+            text-align: left; /* Left-aligning section content */
+            gap: 50px; /* Spacing between sections */
+        }
+
+        .footer-section {
+            width: 300px; /* Ensuring equal width */
+        }
+
+        .footer-section h3 {
+            text-align: left;
+        }
+
         .footer a {
             color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
         }
-    
-        .footer-content {
-            color: white;
+
+        .footer a:hover {
+            text-decoration: underline;
         }
-    
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            font-size: 24px;
+        }
+
         .footer-bottom {
-            color: white;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 10px;
+            font-size: 14px;
+            text-align: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .icon {
+            font-size: 20px;
         }
     </style>
+
+    <div class="footer-left">
+        Scheduley
+    </div>
+
     <div class="footer-content">
         <div class="footer-section">
             <h3>About Scheduley</h3>
             <p>Your Schedule toolbox.</p>
             <p>Made by Ali Yassin.</p>
         </div>
-        
+
         <div class="footer-section">
             <h3>Connect With Me</h3>
-            <a href="https://www.linkedin.com/in/ali13yassin/">Linkedin</a>
-            <a href="mailto:ali230105333@sut.edu.eg">ali230105333@sut.edu.eg</a>
-            <div class="social-links">
-                
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
+            <a href="https://www.linkedin.com/in/ali13yassin/" target="_blank">
+                <i class="fab fa-linkedin icon"></i> LinkedIn
+            </a>
+            <a href="mailto:ali230105333@sut.edu.eg">
+                <i class="fas fa-envelope icon"></i> Email
+            </a>
         </div>
     </div>
-    
+
     <div class="footer-bottom">
         <p>&copy; 2024 Scheduley. All rights reserved.</p>
     </div>
-</footer>   
+</footer>
+
+<!-- FontAwesome Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>

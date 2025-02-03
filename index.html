@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -99,8 +100,13 @@
             display: inline-block;
             width: fit-content;
         }
+        #footer {
+            margin-top: 50px;
+            /* Adjust the value as needed */
+        }
     </style>
 </head>
+
 <body>
 
     <div class="title">Scheduley</div>
@@ -121,7 +127,7 @@
             <span>Your</span>
             <span>Schedule</span>
         </div>
-        
+
     </div>
     <div id="footer"></div>
     <script>
@@ -136,7 +142,8 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer').innerHTML = data;
-        });
+            });
     </script>
 </body>
+
 </html>
